@@ -13,7 +13,7 @@
   "id-class-value": false,
   "id-unique": true,
   "inline-script-disabled": true,
-  "inline-style-disabled": true,
+  "inline-style-disabled": false,
   "spec-char-escape": true,
   "src-not-empty": true,
   "style-disabled": false,
