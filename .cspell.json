@@ -1,0 +1,15 @@
+{
+  "version": "0.2",
+  "words": [
+    "gulpfile",
+    "Oliff",
+    "viewports"
+  ],
+  "language": "en,en-US",
+  "allowCompoundWords": true,
+  "ignorePaths": [
+    ".cspell.json",
+    "**/node_modules/**"
+  ],
+  "useGitignore": true
+}

@@ -1,0 +1,41 @@
+{
+  "name": "bootstrap-5-migrate-tool",
+  "version": "1.0.0",
+  "description": "A command-line tool designed to help you upgrade your Bootstrap 4 projects to Bootstrap 5",
+  "homepage": "https://github.com/coliff/bootstrap-5-migrate-tool",
+  "bugs": {
+    "url": "https://github.com/coliff/bootstrap-5-migrate-tool/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coliff/bootstrap-5-migrate-tool.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/coliff"
+  },
+  "license": "MIT",
+  "author": "Christian Oliff (https://christianoliff.com)",
+  "engines": {
+    "node": ">=16"
+  },
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp migrate",
+    "lint": "eslint gulpfile.js",
+    "prettier": "prettier --write \"*.js\"",
+    "test": "npm run lint && npm run prettier && gulp migrate"
+  },
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.1.4"
+  },
+  "devDependencies": {
+    "eslint": "8.31.0",
+    "eslint-config-prettier": "8.8.0",
+    "prettier": "2.8.8"
+  },
+  "files": [
+    "gulpfile.js"
+  ]
+}

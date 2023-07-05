@@ -1,0 +1,25 @@
+name: 'Check spelling'
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  spellcheck:
+    permissions:
+      contents: read
+      pull-requests: read
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: streetsidesoftware/cspell-action@v2
+        with:
+          check_dot_files: false
+          incremental_files_only: true
+          inline: warning
+          strict: false
