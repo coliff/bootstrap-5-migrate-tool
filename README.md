@@ -21,3 +21,8 @@ gulp migrate
 ```
 
 Read the official Bootstrap 5 migration guide here: <https://getbootstrap.com/docs/5.3/migration/>
+
+## Demo
+
+- Input: [Bootstrap 4 HTML template](https://coliff.github.io/bootstrap-5-migrate-tool/src/index.html)
+- Output: [Bootstrap 5 HTML template](https://coliff.github.io/bootstrap-5-migrate-tool/dest/index.html)

@@ -6,70 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap 5 Migrate Tool Test Page</title>
   <meta name="description" content="Test page for the Bootstrap 5 Migrate Tool">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="author" href="https://christianoliff.com/">
 </head>
 
 <body class="container">
 
   <header class="mb-5">
-    <h1 class="display-4 ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
+    <h1 class="display-4 ms-1 me-1 text-center">Bootstrap 5 Migrate Tool</h1>
   </header>
 
-  <main id="content" class="pl-5 pr-5 mb-5">
+  <main id="content" class="ps-5 pe-5 mb-5">
 
     <h2 class="h3 text-dark" id="components">Components</h2>
 
     <h3 class="h4" id="badges">Badges</h3>
 
-    <span class="badge badge-primary">Primary</span>
-    <span class="badge badge-secondary">Secondary</span>
-    <span class="badge badge-success">Success</span>
-    <span class="badge badge-danger">Danger</span>
-    <span class="badge badge-warning">Warning</span>
-    <span class="badge badge-info">Info</span>
-    <span class="badge badge-light">Light</span>
-    <span class="badge badge-dark">Dark</span>
+    <span class="badge bg-primary">Primary</span>
+    <span class="badge bg-secondary">Secondary</span>
+    <span class="badge bg-success">Success</span>
+    <span class="badge bg-danger">Danger</span>
+    <span class="badge bg-warning">Warning</span>
+    <span class="badge bg-info">Info</span>
+    <span class="badge bg-light">Light</span>
+    <span class="badge bg-dark">Dark</span>
 
     <br>
 
-    <span class="badge badge-pill badge-primary">Primary</span>
-    <span class="badge badge-pill badge-secondary">Secondary</span>
-    <span class="badge badge-pill badge-success">Success</span>
-    <span class="badge badge-pill badge-danger">Danger</span>
-    <span class="badge badge-pill badge-warning">Warning</span>
-    <span class="badge badge-pill badge-info">Info</span>
-    <span class="badge badge-pill badge-light">Light</span>
-    <span class="badge badge-pill badge-dark">Dark</span>
+    <span class="badge rounded-pill bg-primary">Primary</span>
+    <span class="badge rounded-pill bg-secondary">Secondary</span>
+    <span class="badge rounded-pill bg-success">Success</span>
+    <span class="badge rounded-pill bg-danger">Danger</span>
+    <span class="badge rounded-pill bg-warning">Warning</span>
+    <span class="badge rounded-pill bg-info">Info</span>
+    <span class="badge rounded-pill bg-light">Light</span>
+    <span class="badge rounded-pill bg-dark">Dark</span>
 
     <hr class="my-5">
 
     <h3 class="h4" id="forms">Forms</h3>
 
-    <div class="custom-control custom-checkbox">
+    <div class="custom-control form-check">
       <input type="checkbox" class="custom-control-input" id="customCheck1">
       <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
     </div>
 
-    <div class="custom-control custom-radio">
+    <div class="custom-control form-check">
       <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
       <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
     </div>
-    <div class="custom-control custom-radio">
+    <div class="custom-control form-check">
       <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
       <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
     </div>
 
-    <div class="custom-control custom-switch">
+    <div class="custom-control form-switch">
       <input type="checkbox" class="custom-control-input" id="customSwitch1">
       <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
     </div>
-    <div class="custom-control custom-switch">
+    <div class="custom-control form-switch">
       <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
       <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
     </div>
 
-    <select class="custom-select">
+    <select class="form-select">
       <option selected>Open this select menu</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -82,21 +82,21 @@
 
     <h3 class="h4" id="border-radius">Border Radius</h3>
 
-    <img src="https://placehold.co/75x75" class="rounded-right" width="75" height="75" alt="...">
+    <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="...">
     <img src="https://placehold.co/75x75" class="rounded-left" width="75" height="75" alt="...">
     <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="...">
     <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="...">
 
     <br>
 
-    <img src="https://placehold.co/75x75" class="rounded-sm" width="75" height="75" alt="...">
-    <img src="https://placehold.co/75x75" class="rounded-lg" width="75" height="75" alt="...">
+    <img src="https://placehold.co/75x75" class="rounded-1" width="75" height="75" alt="...">
+    <img src="https://placehold.co/75x75" class="rounded-3" width="75" height="75" alt="...">
 
     <hr class="my-5">
 
     <h3 class="h4" id="close-button">Close Button</h3>
 
-    <button type="button" class="close" aria-label="Close">
+    <button type="button" class="btn-close" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
 
@@ -104,28 +104,28 @@
 
     <h3 class="h4" id="screen-readers">Screen readers</h3>
 
-    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+    <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
 
     <hr class="my-5">
 
     <h3 class="h4" id="text">Text</h3>
 
-    <p class="text-left">Left aligned text on all viewport sizes.</p>
-    <p class="text-right">Right aligned text on all viewport sizes.</p>
+    <p class="text-start">Left aligned text on all viewport sizes.</p>
+    <p class="text-end">Right aligned text on all viewport sizes.</p>
 
-    <p class="text-sm-left">Left aligned text on viewports sized SM (small) or wider.</p>
-    <p class="text-md-left">Left aligned text on viewports sized MD (medium) or wider.</p>
-    <p class="text-lg-left">Left aligned text on viewports sized LG (large) or wider.</p>
-    <p class="text-xl-left">Left aligned text on viewports sized XL (extra-large) or wider.</p>
+    <p class="text-sm-start">Left aligned text on viewports sized SM (small) or wider.</p>
+    <p class="text-md-start">Left aligned text on viewports sized MD (medium) or wider.</p>
+    <p class="text-lg-start">Left aligned text on viewports sized LG (large) or wider.</p>
+    <p class="text-xl-start">Left aligned text on viewports sized XL (extra-large) or wider.</p>
 
-    <p class="font-weight-bold">Bold text.</p>
-    <p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
-    <p class="font-weight-normal">Normal weight text.</p>
-    <p class="font-weight-light">Light weight text.</p>
-    <p class="font-weight-lighter">Lighter weight text (relative to the parent element).</p>
-    <p class="font-italic">Italic text.</p>
+    <p class="fw-bold">Bold text.</p>
+    <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+    <p class="fw-normal">Normal weight text.</p>
+    <p class="fw-light">Light weight text.</p>
+    <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+    <p class="fst-italic">Italic text.</p>
 
-    <p class="text-monospace">This is in monospace</p>
+    <p class="font-monospace">This is in monospace</p>
 
     <hr class="my-5">
 
@@ -140,8 +140,8 @@
 
     <div class="mb-5">
       <!-- 16:9 aspect ratio -->
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="https://example.com"></iframe>
+      <div class="ratio ratio-16x9">
+        <iframe class="" src="https://example.com"></iframe>
       </div>
     </div>
 
@@ -149,7 +149,7 @@
 
     <h3 class="h4" id="jumbotron">Jumbotron</h3>
 
-    <div class="jumbotron">
+    <div class="bg-light mb-4 rounded-2 py-5 px-3">
       <h1 class="display-4">Hello, world!</h1>
       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
         featured
@@ -159,7 +159,7 @@
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </div>
 
-    <div class="jumbotron jumbotron-fluid">
+    <div class="bg-light mb-4 rounded-2 py-5 px-3 rounded-0 px-0">
       <div class="container">
         <h1 class="display-4">Fluid jumbotron</h1>
         <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
@@ -170,9 +170,9 @@
 
     <h3 class="h4" id="media">Media</h3>
 
-    <div class="media">
-      <img src="https://placehold.co/64x64" class="mr-3" alt="...">
-      <div class="media-body">
+    <div class="d-flex">
+      <img src="https://placehold.co/64x64" class="me-3" alt="...">
+      <div class="d-flex-body">
         <h5 class="mt-0">Media heading</h5>
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be
           the
@@ -187,7 +187,7 @@
     <p class="my-3">© 2023 <a href="https://christianoliff.com/" target="_blank">Christian Oliff</a></p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

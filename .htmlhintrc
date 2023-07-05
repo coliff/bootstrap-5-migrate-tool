@@ -3,7 +3,7 @@
   "attr-lowercase": true,
   "attr-no-duplication": true,
   "attr-unsafe-chars": true,
-  "attr-value-not-empty": true,
+  "attr-value-not-empty": false,
   "doctype-first": true,
   "doctype-html5": true,
   "head-script-disabled": true,
