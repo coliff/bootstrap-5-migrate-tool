@@ -5,20 +5,20 @@ function migrate() {
   return src(['src/*.html'])
     .pipe(
       replace(
-        '<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">',
+        /<link href="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap\.min\.css" rel="stylesheet">/g,
         '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">'
       )
     )
     .pipe(
       replace(
-        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>',
-        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>'
+        /<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle\.min\.js">/g,
+        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">'
       )
     )
     .pipe(
       replace(
-        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>',
-        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>'
+        /<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.min\.js">/g,
+        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js">'
       )
     )
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bbadge-danger\b([^"]*")/g, '$1bg-danger$2'))
@@ -36,9 +36,9 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control-input\b([^"]*")/g, '$1form-check-input$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control-label\b([^"]*")/g, '$1form-check-label$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control custom-checkbox\b([^"]*")/g, '$1form-check$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control custom-radio\b([^"]*")/g, '$1form-check$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-file-input\b([^"]*")/g, '$1form-control$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-file-label\b([^"]*")/g, '$1form-label$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control custom-radio\b([^"]*")/g, '$1form-check$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-range\b([^"]*")/g, '$1form-range$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-select\b([^"]*")/g, '$1form-select$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control custom-switch\b([^"]*")/g, '$1form-switch$2'))
@@ -50,6 +50,7 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bfont-weight-light\b([^"]*")/g, '$1fw-light$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bfont-weight-lighter\b([^"]*")/g, '$1fw-lighter$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bfont-weight-normal\b([^"]*")/g, '$1fw-normal$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bform-control-range\b([^"]*")/g, '$1form-range$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron-fluid\b([^"]*")/g, '$1rounded-0 px-0$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron\b([^"]*")/g, '$1bg-light mb-4 rounded-2 py-5 px-3$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmedia\b([^"]*")/g, '$1d-flex$2'))
