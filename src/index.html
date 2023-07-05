@@ -28,7 +28,7 @@
     <span class="badge badge-danger">Danger</span>
     <span class="badge badge-warning">Warning</span>
     <span class="badge badge-info">Info</span>
-    <span class="badge badge-light">Light</span>
+    <span class="badge badge-light text-dark">Light</span>
     <span class="badge badge-dark">Dark</span>
 
     <br>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="customSwitch1">
+      <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
       <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
     </div>
     <div class="custom-control custom-switch">
@@ -69,12 +69,26 @@
       <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
     </div>
 
-    <select class="custom-select">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
+    <div class="my-3">
+      <select class="custom-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="my-3">
+      <label for="customRange1">Example Custom range</label>
+      <input type="range" class="custom-range" id="customRange1">
+    </div>
+
+    <div class="my-3">
+      <div class="custom-file">
+        <input type="file" class="custom-file-input" id="customFile">
+        <label class="custom-file-label" for="customFile">Choose file</label>
+      </div>
+    </div>
 
     <hr class="my-5">
 
@@ -183,8 +197,12 @@
 
   </main>
 
-  <footer class="text-center">
-    <p class="my-3">© 2023 <a href="https://christianoliff.com/" target="_blank">Christian Oliff</a></p>
+  <footer class="text-center text-muted">
+
+    <hr class="my-5">
+
+    <p class="my-3">© 2023 <a href="https://christianoliff.com/" target="_blank" class="text-reset">Christian
+        Oliff</a></p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
