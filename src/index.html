@@ -18,7 +18,7 @@
     <h1 class="font-weight-normal ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
   </header>
 
-  <main id="content" class="pl-sm-5 pr-sm-5 mb-5">
+  <main id="content" class="pl-md-5 pr-md-5 mb-5">
 
     <h2 class="h3 text-dark" id="components">Components</h2>
 
@@ -33,7 +33,7 @@
     <span class="badge badge-light text-dark">Light</span>
     <span class="badge badge-dark">Dark</span>
 
-    <br>
+    <br><br>
 
     <span class="badge badge-pill badge-primary">Primary</span>
     <span class="badge badge-pill badge-secondary">Secondary</span>
@@ -41,7 +41,7 @@
     <span class="badge badge-pill badge-danger">Danger</span>
     <span class="badge badge-pill badge-warning">Warning</span>
     <span class="badge badge-pill badge-info">Info</span>
-    <span class="badge badge-pill badge-light">Light</span>
+    <span class="badge badge-pill badge-light text-dark">Light</span>
     <span class="badge badge-pill badge-dark">Dark</span>
 
     <hr class="my-5">
@@ -51,7 +51,8 @@
     <!-- Default dropright button -->
     <div class="mb-2" style="min-height:30px">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+          aria-expanded="false">
           Dropright
         </button>
         <div class="dropdown-menu">
@@ -64,11 +65,11 @@
     <!-- Split dropright button -->
     <div class="mb-2" style="min-height:30px">
       <div class="btn-group dropright">
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-sm btn-secondary">
           Split dropright
         </button>
-        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-          aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+          data-toggle="dropdown" aria-expanded="false">
           <span class="sr-only">Toggle Dropright</span>
         </button>
         <div class="dropdown-menu">
@@ -81,7 +82,8 @@
     <!-- Default dropleft button -->
     <div class="mb-2" style="min-height:30px;margin-left:0px">
       <div class="btn-group dropleft">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+          aria-expanded="false">
           Dropleft
         </button>
         <div class="dropdown-menu">
@@ -95,8 +97,8 @@
     <div class="mb-2" style="min-height:30px;margin-left:0px">
       <div class="btn-group">
         <div class="btn-group dropleft">
-          <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
-            aria-expanded="false">
+          <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+            data-toggle="dropdown" aria-expanded="false">
             <span class="sr-only">Toggle Dropleft</span>
           </button>
           <div class="dropdown-menu">
@@ -104,7 +106,7 @@
             <button class="dropdown-item" type="button">Another action</button>
           </div>
         </div>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-sm btn-secondary">
           Split dropleft
         </button>
       </div>
@@ -112,7 +114,8 @@
 
     <div class="mb-2" style="min-height:30px">
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+          aria-expanded="false">
           Right-aligned menu
         </button>
         <div class="dropdown-menu dropdown-menu-right">
@@ -124,8 +127,8 @@
 
     <div class="mb-2" style="min-height:30px">
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static"
-          aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+          data-display="static" aria-expanded="false">
           Left-aligned but right aligned when large screen
         </button>
         <div class="dropdown-menu dropdown-menu-lg-right">
@@ -137,8 +140,8 @@
 
     <div style="min-height:30px">
       <div class="btn-group">
-        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static"
-          aria-expanded="false">
+        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+          data-display="static" aria-expanded="false">
           Right-aligned but left aligned when large screen
         </button>
         <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
@@ -245,6 +248,11 @@
     <p class="text-lg-left">Left aligned text on viewports sized LG (large) or wider.</p>
     <p class="text-xl-left">Left aligned text on viewports sized XL (extra-large) or wider.</p>
 
+    <p class="text-sm-right">Right aligned text on viewports sized SM (small) or wider.</p>
+    <p class="text-md-right">Right aligned text on viewports sized MD (medium) or wider.</p>
+    <p class="text-lg-right">Right aligned text on viewports sized LG (large) or wider.</p>
+    <p class="text-xl-right">Right aligned text on viewports sized XL (extra-large) or wider.</p>
+
     <p class="font-weight-bold">Bold text.</p>
     <p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
     <p class="font-weight-normal">Normal weight text.</p>
@@ -312,13 +320,23 @@
 
     <hr class="my-5">
 
-    <p class="my-3">&copy; 2023
+    <p class="my-3 small">&copy; 2023
       <a href="https://christianoliff.com/" target="_blank" class="text-dark">Christian Oliff</a> /
       <a href="https://github.com/coliff/bootstrap-5-migrate-tool" target="_blank" class="text-dark">GitHub</a>
     </p>
   </footer>
 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.js"></script>
+
+
+  <script>
+    const elements = document.querySelectorAll('[data-toggle="dropdown"]');
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].setAttribute('data-bs-toggle', 'dropdown');
+      elements[i].removeAttribute('data-toggle');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
