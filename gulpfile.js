@@ -23,6 +23,12 @@ function migrate() {
     )
     .pipe(
       replace(
+        /<script src="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css">/g,
+        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">',
+      ),
+    )
+    .pipe(
+      replace(
         /<script src="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js">/g,
         '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js">',
       ),
@@ -63,11 +69,10 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bform-control-range\b([^"]*")/g, '$1form-range$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron-fluid\b([^"]*")/g, '$1rounded-0 px-0$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron\b([^"]*")/g, '$1bg-light mb-4 rounded-2 py-5 px-3$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmedia\b([^"]*")/g, '$1d-flex$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmedia-body\b([^"]*")/g, '$1flex-grow-1$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmedia\b([^"]*")/g, '$1d-flex$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bml-\b([^"]*")/g, '$1ms-$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmr-\b([^"]*")/g, '$1me-$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmr-auto\b([^"]*")/g, '$1me-auto$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bno-gutters\b([^"]*")/g, '$1g-0$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bpl-\b([^"]*")/g, '$1ps-$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bpr-\b([^"]*")/g, '$1pe-$2'))
@@ -78,6 +83,7 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bembed-responsive-21by9\b([^"]*")/g, '$1ratio-21x9$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bembed-responsive-4by3\b([^"]*")/g, '$1ratio-4x3$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bembed-responsive\b([^"]*")/g, '$1ratio$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\brounded-left\b([^"]*")/g, '$1rounded-start$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\brounded-lg\b([^"]*")/g, '$1rounded-3$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\brounded-right\b([^"]*")/g, '$1rounded-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\brounded-sm\b([^"]*")/g, '$1rounded-1$2'))
