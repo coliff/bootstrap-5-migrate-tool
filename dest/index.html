@@ -213,7 +213,7 @@
     <h3 class="h4" id="border-radius">Border Radius</h3>
 
     <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="rounded-right">
-    <img src="https://placehold.co/75x75" class="rounded-left" width="75" height="75" alt="rounded-left">
+    <img src="https://placehold.co/75x75" class="rounded-start" width="75" height="75" alt="rounded-left">
     <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
     <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
 
@@ -306,7 +306,7 @@
 
     <div class="d-flex">
       <img src="https://placehold.co/64x64" class="me-3" alt="">
-      <div class="d-flex-body">
+      <div class="flex-grow-1">
         <h5 class="mt-0">Media heading</h5>
         <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be
           the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love,
@@ -326,16 +326,17 @@
     </p>
   </footer>
 
-
-
   <script>
-    const elements = document.querySelectorAll('[data-toggle="dropdown"]');
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].setAttribute('data-bs-toggle', 'dropdown');
-      elements[i].removeAttribute('data-toggle');
+    if (window.location.href.includes('dest')) {
+      const elements = document.querySelectorAll('[data-toggle="dropdown"]');
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].setAttribute('data-bs-toggle', 'dropdown');
+        elements[i].removeAttribute('data-toggle');
+      }
     }
   </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
