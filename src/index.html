@@ -15,412 +15,447 @@
 <body class="container">
 
   <header class="mb-5">
-    <h1 class="font-weight-normal ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
+    <h1 class="font-weight-normal h2 ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
   </header>
 
-  <main id="content" class="pl-md-5 pr-md-5 mb-5">
+  <div class="row">
 
-    <h2 class="h3 text-dark" id="components">Components</h2>
-
-    <h3 class="h4" id="badges">Badges</h3>
-
-    <span class="badge badge-primary">Primary</span>
-    <span class="badge badge-secondary">Secondary</span>
-    <span class="badge badge-success">Success</span>
-    <span class="badge badge-danger">Danger</span>
-    <span class="badge badge-warning">Warning</span>
-    <span class="badge badge-info">Info</span>
-    <span class="badge badge-light text-dark">Light</span>
-    <span class="badge badge-dark">Dark</span>
-
-    <br><br>
-
-    <span class="badge badge-pill badge-primary">Primary</span>
-    <span class="badge badge-pill badge-secondary">Secondary</span>
-    <span class="badge badge-pill badge-success">Success</span>
-    <span class="badge badge-pill badge-danger">Danger</span>
-    <span class="badge badge-pill badge-warning">Warning</span>
-    <span class="badge badge-pill badge-info">Info</span>
-    <span class="badge badge-pill badge-light text-dark">Light</span>
-    <span class="badge badge-pill badge-dark">Dark</span>
-
-    <hr class="my-5">
-
-    <h3 class="h4" id="dropdown-menu">Dropdown Menu</h3>
-
-    <!-- Default dropright button -->
-    <div class="mb-2" style="min-height:30px">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
-          aria-expanded="false">
-          Dropright
-        </button>
-        <div class="dropdown-menu">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
+    <div class="col-12 col-md-3 col-xl-2 order-md-last">
+      <aside class="sticky-top text-body-secondary align-self-start mb-3 mb-xl-5">
+        <h2 class="h6 pb-3 mb-4 border-bottom">On this page</h2>
+        <nav class="small" id="toc">
+          <ul class="list-unstyled">
+            <li>Components</li>
+            <li><a class="text-decoration-none m-2" href="#badges">Badges</a></li>
+            <li><a class="text-decoration-none m-2" href="#dropdown-menus">Dropdown Menu</a></li>
+            <li><a class="text-decoration-none m-2" href="#forms">Forms</a></li>
+            <li class="mt-3">Utilities</li>
+            <li><a class="text-decoration-none m-2" href="#border-radius">Border Radius</a></li>
+            <li><a class="text-decoration-none m-2" href="#close-button">Close Button</a></li>
+            <li><a class="text-decoration-none m-2" href="#screen readers">Screen readers</a></li>
+            <li><a class="text-decoration-none m-2" href="#spacing">Spacing</a></li>
+            <li><a class="text-decoration-none m-2" href="#text">Text</a></li>
+            <li><a class="text-decoration-none m-2" href="#visibility">Visibility</a></li>
+            <li><a class="text-decoration-none m-2" href="#embed">Embed</a></li>
+            <li class="mt-3">Deprecated</li>
+            <li><a class="text-decoration-none m-2" href="#jumbotron">Jumbotron</a></li>
+            <li><a class="text-decoration-none m-2" href="#media">Media</a></li>
+          </ul>
+        </nav>
+      </aside>
     </div>
 
-    <!-- Split dropright button -->
-    <div class="mb-2" style="min-height:30px">
-      <div class="btn-group dropright">
-        <button type="button" class="btn btn-sm btn-secondary">
-          Split dropright
-        </button>
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
-          data-toggle="dropdown" aria-expanded="false">
-          <span class="sr-only">Toggle Dropright</span>
-        </button>
-        <div class="dropdown-menu">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
-    </div>
+    <div class="col-12 col-md-9 col-xl-10">
+      <main id="content" class="mb-5">
+        <h2 class="h3 text-dark" id="components">Components</h2>
 
-    <!-- Default dropleft button -->
-    <div class="mb-2" style="min-height:30px;margin-left:0px">
-      <div class="btn-group dropleft">
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
-          aria-expanded="false">
-          Dropleft
-        </button>
-        <div class="dropdown-menu">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
-    </div>
+        <h3 class="h4" id="badges">Badges</h3>
 
-    <!-- Split dropleft button -->
-    <div class="mb-2" style="min-height:30px;margin-left:0px">
-      <div class="btn-group">
-        <div class="btn-group dropleft">
-          <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
-            data-toggle="dropdown" aria-expanded="false">
-            <span class="sr-only">Toggle Dropleft</span>
-          </button>
-          <div class="dropdown-menu">
-            <button class="dropdown-item" type="button">Action</button>
-            <button class="dropdown-item" type="button">Another action</button>
-          </div>
-        </div>
-        <button type="button" class="btn btn-sm btn-secondary">
-          Split dropleft
-        </button>
-      </div>
-    </div>
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-info">Info</span>
+        <span class="badge badge-light text-dark">Light</span>
+        <span class="badge badge-dark">Dark</span>
 
-    <div class="mb-2" style="min-height:30px">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
-          aria-expanded="false">
-          Right-aligned menu
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
-    </div>
+        <br><br>
 
-    <div class="mb-2" style="min-height:30px">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
-          data-display="static" aria-expanded="false">
-          Left-aligned but right aligned when large screen
-        </button>
-        <div class="dropdown-menu dropdown-menu-lg-right">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
-    </div>
+        <span class="badge badge-pill badge-primary">Primary</span>
+        <span class="badge badge-pill badge-secondary">Secondary</span>
+        <span class="badge badge-pill badge-success">Success</span>
+        <span class="badge badge-pill badge-danger">Danger</span>
+        <span class="badge badge-pill badge-warning">Warning</span>
+        <span class="badge badge-pill badge-info">Info</span>
+        <span class="badge badge-pill badge-light text-dark">Light</span>
+        <span class="badge badge-pill badge-dark">Dark</span>
 
-    <div style="min-height:30px">
-      <div class="btn-group">
-        <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
-          data-display="static" aria-expanded="false">
-          Right-aligned but left aligned when large screen
-        </button>
-        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
-          <button class="dropdown-item" type="button">Action</button>
-          <button class="dropdown-item" type="button">Another action</button>
-        </div>
-      </div>
-    </div>
+        <hr class="my-5">
 
-    <hr class="my-5">
+        <h3 class="h4" id="dropdown-menu">Dropdown Menu</h3>
 
-    <h3 class="h4" id="forms">Forms</h3>
-
-    <form>
-      <div class="form-row align-items-center">
-        <div class="col-sm-3 my-1">
-          <label class="sr-only" for="inlineFormInputName">Name</label>
-          <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
-        </div>
-        <div class="col-sm-3 my-1">
-          <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <div class="input-group-text">@</div>
+        <!-- Default dropright button -->
+        <div class="mb-2" style="min-height:30px">
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-expanded="false">
+              Dropright
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
             </div>
-            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
           </div>
         </div>
-        <div class="col-auto my-1">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
-            <label class="form-check-label" for="autoSizingCheck2">
-              Remember me
-            </label>
+
+        <!-- Split dropright button -->
+        <div class="mb-2" style="min-height:30px">
+          <div class="btn-group dropright">
+            <button type="button" class="btn btn-sm btn-secondary">
+              Split dropright
+            </button>
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+              data-toggle="dropdown" aria-expanded="false">
+              <span class="sr-only">Toggle Dropright</span>
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+            </div>
           </div>
         </div>
-        <div class="col-auto my-1">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
-    </form>
 
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-      <label class="form-check-label" for="defaultCheck1">
-        Default checkbox
-      </label>
+        <!-- Default dropleft button -->
+        <div class="mb-2" style="min-height:30px;margin-left:0px">
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-expanded="false">
+              Dropleft
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Split dropleft button -->
+        <div class="mb-2" style="min-height:30px;margin-left:0px">
+          <div class="btn-group">
+            <div class="btn-group dropleft">
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split"
+                data-toggle="dropdown" aria-expanded="false">
+                <span class="sr-only">Toggle Dropleft</span>
+              </button>
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">Another action</button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-secondary">
+              Split dropleft
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-2" style="min-height:30px">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+              aria-expanded="false">
+              Right-aligned menu
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-2" style="min-height:30px">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+              data-display="static" aria-expanded="false">
+              Left-aligned but right aligned when large screen
+            </button>
+            <div class="dropdown-menu dropdown-menu-lg-right">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="min-height:30px">
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown"
+              data-display="static" aria-expanded="false">
+              Right-aligned but left aligned when large screen
+            </button>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="forms">Forms</h3>
+
+        <form class="mb-3">
+          <div class="form-row align-items-center">
+            <div class="col-sm-3 my-1">
+              <label class="sr-only" for="inlineFormInputName">Name</label>
+              <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
+            </div>
+            <div class="col-sm-3 my-1">
+              <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">@</div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+              </div>
+            </div>
+            <div class="col-auto my-1">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                <label class="form-check-label" for="autoSizingCheck2">
+                  Remember me
+                </label>
+              </div>
+            </div>
+            <div class="col-auto my-1">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Default checkbox
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+          <label class="form-check-label" for="defaultCheck2">
+            Disabled checkbox
+          </label>
+        </div>
+
+        <div class="form-check mt-3">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+          <label class="form-check-label" for="exampleRadios1">
+            Default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+          <label class="form-check-label" for="exampleRadios2">
+            Second default radio
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3"
+            disabled>
+          <label class="form-check-label" for="exampleRadios3">
+            Disabled radio
+          </label>
+        </div>
+
+        <form class="my-3">
+          <div class="form-group">
+            <label for="formControlRange">Example Range input</label>
+            <input type="range" class="form-control-range" id="formControlRange">
+          </div>
+        </form>
+
+        <h4 class="h5 mt-4" id="custom-forms">Custom forms</h3>
+
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
+          </div>
+
+          <div class="mt-3">
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
+              <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+            </div>
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
+              <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <select class="custom-select">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+
+          <div class="my-3">
+            <label for="customRange1">Example Custom range</label>
+            <input type="range" class="custom-range" id="customRange1">
+          </div>
+
+          <div class="my-3">
+            <div class="custom-file">
+              <label class="custom-file-label" for="customFile">Choose file</label>
+              <input type="file" class="custom-file-input" id="customFile">
+            </div>
+          </div>
+
+          <hr class="my-5">
+
+          <h2 class="h3 text-dark" id="utilities">Utilities</h2>
+
+          <h3 class="h4" id="border-radius">Border Radius</h3>
+
+          <img src="https://placehold.co/75x75" class="rounded-right" width="75" height="75" alt="rounded-right">
+          <img src="https://placehold.co/75x75" class="rounded-left" width="75" height="75" alt="rounded-left">
+          <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
+          <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
+
+          <br><br>
+
+          <img src="https://placehold.co/75x75" class="rounded-sm" width="75" height="75" alt="rounded-sm">
+          <img src="https://placehold.co/75x75" class="rounded-lg" width="75" height="75" alt="rounded-lg">
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="close-button">Close Button</h3>
+
+          <div class="ml-1 float-left mb-5">
+            <button type="button" class="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="screen-readers">Screen readers</h3>
+
+          <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="spacing">Spacing</h3>
+
+          <div>
+            <div class="ml-1 bg-light border" style="width: 100px;">
+              ml-1
+            </div>
+            <div class="ml-2 bg-light border" style="width: 100px;">
+              ml-2
+            </div>
+            <div class="ml-3 bg-light border" style="width: 100px;">
+              ml-3
+            </div>
+            <div class="ml-4 bg-light border" style="width: 100px;">
+              ml-4
+            </div>
+            <div class="ml-5 bg-light border" style="width: 100px;">
+              ml-5
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <div class="pl-1 bg-light border" style="width: 100px;">
+              pl-1
+            </div>
+            <div class="pl-2 bg-light border" style="width: 100px;">
+              pl-2
+            </div>
+            <div class="pl-3 bg-light border" style="width: 100px;">
+              pl-3
+            </div>
+            <div class="pl-4 bg-light border" style="width: 100px;">
+              pl-4
+            </div>
+            <div class="pl-5 bg-light border" style="width: 100px;">
+              pl-5
+            </div>
+          </div>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="text">Text</h3>
+
+          <p class="text-left">Left aligned text on all viewport sizes.</p>
+          <p class="text-right">Right aligned text on all viewport sizes.</p>
+
+          <p class="text-sm-left">Left aligned text on viewports sized SM (small) or wider.</p>
+          <p class="text-md-left">Left aligned text on viewports sized MD (medium) or wider.</p>
+          <p class="text-lg-left">Left aligned text on viewports sized LG (large) or wider.</p>
+          <p class="text-xl-left">Left aligned text on viewports sized XL (extra-large) or wider.</p>
+
+          <p class="text-sm-right">Right aligned text on viewports sized SM (small) or wider.</p>
+          <p class="text-md-right">Right aligned text on viewports sized MD (medium) or wider.</p>
+          <p class="text-lg-right">Right aligned text on viewports sized LG (large) or wider.</p>
+          <p class="text-xl-right">Right aligned text on viewports sized XL (extra-large) or wider.</p>
+
+          <p class="font-weight-bold">Bold text.</p>
+          <p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
+          <p class="font-weight-normal">Normal weight text.</p>
+          <p class="font-weight-light">Light weight text.</p>
+          <p class="font-weight-lighter">Lighter weight text (relative to the parent element).</p>
+          <p class="font-italic">Italic text.</p>
+
+          <p class="text-monospace">This is in monospace</p>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="visibility">Visibility</h3>
+
+          <div class="visible">visible</div>
+          <div class="invisible">invisible</div>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="embed">Embed</h3>
+
+          <div class="mb-5">
+            <!-- 16:9 aspect ratio -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://example.com"></iframe>
+            </div>
+          </div>
+
+          <h2 class="h3 text-dark">Deprecated components / Utilities</h2>
+
+          <h3 class="h4" id="jumbotron">Jumbotron</h3>
+
+          <div class="jumbotron">
+            <h1 class="display-4">Hello, world!</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+              to
+              featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+          </div>
+
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Fluid jumbotron</h1>
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+          </div>
+
+          <hr class="my-5">
+
+          <h3 class="h4" id="media">Media</h3>
+
+          <div class="media">
+            <img src="https://placehold.co/64x64" class="mr-3" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Media heading</h5>
+              <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful,
+                be
+                the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our
+                love,
+                angels are crying from up above. Yeah, you take me to utopia.</p>
+            </div>
+          </div>
+
+      </main>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
-      <label class="form-check-label" for="defaultCheck2">
-        Disabled checkbox
-      </label>
-    </div>
 
-    <div class="form-check mt-3">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-      <label class="form-check-label" for="exampleRadios1">
-        Default radio
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-      <label class="form-check-label" for="exampleRadios2">
-        Second default radio
-      </label>
-    </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-      <label class="form-check-label" for="exampleRadios3">
-        Disabled radio
-      </label>
-    </div>
-
-    <form class="my-3">
-      <div class="form-group">
-        <label for="formControlRange">Example Range input</label>
-        <input type="range" class="form-control-range" id="formControlRange">
-      </div>
-    </form>
-
-    <h4 class="h5 mt-4" id="custom-forms">Custom forms</h3>
-
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck1">
-        <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
-      </div>
-
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
-      </div>
-      <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio2">Or toggle this other custom radio</label>
-      </div>
-
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-        <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
-      </div>
-      <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" disabled id="customSwitch2">
-        <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
-      </div>
-
-      <div class="my-3">
-        <select class="custom-select">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
-
-
-
-      <div class="my-3">
-        <label for="customRange1">Example Custom range</label>
-        <input type="range" class="custom-range" id="customRange1">
-      </div>
-
-      <div class="my-3">
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="customFile">
-          <label class="custom-file-label" for="customFile">Choose file</label>
-        </div>
-      </div>
-
-      <hr class="my-5">
-
-      <h2 class="h3 text-dark" id="utilities">Utilities</h2>
-
-      <h3 class="h4" id="border-radius">Border Radius</h3>
-
-      <img src="https://placehold.co/75x75" class="rounded-right" width="75" height="75" alt="rounded-right">
-      <img src="https://placehold.co/75x75" class="rounded-left" width="75" height="75" alt="rounded-left">
-      <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
-      <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
-
-      <br><br>
-
-      <img src="https://placehold.co/75x75" class="rounded-sm" width="75" height="75" alt="rounded-sm">
-      <img src="https://placehold.co/75x75" class="rounded-lg" width="75" height="75" alt="rounded-lg">
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="close-button">Close Button</h3>
-
-      <button type="button" class="close" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="screen-readers">Screen readers</h3>
-
-      <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="spacing">Spacing</h3>
-
-      <div>
-        <div class="ml-1 bg-light border" style="width: 100px;">
-          ml-1
-        </div>
-        <div class="ml-2 bg-light border" style="width: 100px;">
-          ml-2
-        </div>
-        <div class="ml-3 bg-light border" style="width: 100px;">
-          ml-3
-        </div>
-        <div class="ml-4 bg-light border" style="width: 100px;">
-          ml-4
-        </div>
-        <div class="ml-5 bg-light border" style="width: 100px;">
-          ml-5
-        </div>
-      </div>
-
-      <div class="mt-2">
-        <div class="pl-1 bg-light border" style="width: 100px;">
-          pl-1
-        </div>
-        <div class="pl-2 bg-light border" style="width: 100px;">
-          pl-2
-        </div>
-        <div class="pl-3 bg-light border" style="width: 100px;">
-          pl-3
-        </div>
-        <div class="pl-4 bg-light border" style="width: 100px;">
-          pl-4
-        </div>
-        <div class="pl-5 bg-light border" style="width: 100px;">
-          pl-5
-        </div>
-      </div>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="text">Text</h3>
-
-      <p class="text-left">Left aligned text on all viewport sizes.</p>
-      <p class="text-right">Right aligned text on all viewport sizes.</p>
-
-      <p class="text-sm-left">Left aligned text on viewports sized SM (small) or wider.</p>
-      <p class="text-md-left">Left aligned text on viewports sized MD (medium) or wider.</p>
-      <p class="text-lg-left">Left aligned text on viewports sized LG (large) or wider.</p>
-      <p class="text-xl-left">Left aligned text on viewports sized XL (extra-large) or wider.</p>
-
-      <p class="text-sm-right">Right aligned text on viewports sized SM (small) or wider.</p>
-      <p class="text-md-right">Right aligned text on viewports sized MD (medium) or wider.</p>
-      <p class="text-lg-right">Right aligned text on viewports sized LG (large) or wider.</p>
-      <p class="text-xl-right">Right aligned text on viewports sized XL (extra-large) or wider.</p>
-
-      <p class="font-weight-bold">Bold text.</p>
-      <p class="font-weight-bolder">Bolder weight text (relative to the parent element).</p>
-      <p class="font-weight-normal">Normal weight text.</p>
-      <p class="font-weight-light">Light weight text.</p>
-      <p class="font-weight-lighter">Lighter weight text (relative to the parent element).</p>
-      <p class="font-italic">Italic text.</p>
-
-      <p class="text-monospace">This is in monospace</p>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="visibility">Visibility</h3>
-
-      <div class="visible">visible</div>
-      <div class="invisible">invisible</div>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="embed">Embed</h3>
-
-      <div class="mb-5">
-        <!-- 16:9 aspect ratio -->
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="https://example.com"></iframe>
-        </div>
-      </div>
-
-      <h2 class="h3 text-dark">Deprecated components / Utilities</h2>
-
-      <h3 class="h4" id="jumbotron">Jumbotron</h3>
-
-      <div class="jumbotron">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-          featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-      </div>
-
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-          <h1 class="display-4">Fluid jumbotron</h1>
-          <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-      </div>
-
-      <hr class="my-5">
-
-      <h3 class="h4" id="media">Media</h3>
-
-      <div class="media">
-        <img src="https://placehold.co/64x64" class="mr-3" alt="">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful, be
-            the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our love,
-            angels are crying from up above. Yeah, you take me to utopia.</p>
-        </div>
-      </div>
-
-  </main>
-
+  </div>
   <footer class="text-center text-muted">
 
     <hr class="my-5">
