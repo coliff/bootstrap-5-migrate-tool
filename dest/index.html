@@ -263,217 +263,242 @@
         </div>
 
         <form class="my-3">
-          <div class="form-group">
+          <div class="mb-3">
+            <label for="exampleFormControlFile1">Example file input</label>
+            <input type="file" class="d-block w-100" id="exampleFormControlFile1">
+          </div>
+        </form>
+
+        <form class="my-3">
+          <div class="mb-3">
             <label for="formControlRange">Example Range input</label>
             <input type="range" class="form-range" id="formControlRange">
           </div>
         </form>
 
-        <h4 class="h5 mt-4" id="custom-forms">Custom forms</h3>
+        <h4 class="h5 mt-4" id="custom-forms">Custom forms</h4>
 
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="customCheck1">
-            <label class="form-check-label" for="customCheck1">Check this custom checkbox</label>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="customCheck1">
+          <label class="form-check-label" for="customCheck1">Check this custom checkbox</label>
+        </div>
+
+        <div class="form-check">
+          <input type="radio" id="customRadio1" name="customRadio" class="form-check-input">
+          <label class="form-check-label" for="customRadio1">Toggle this custom radio</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" id="customRadio2" name="customRadio" class="form-check-input">
+          <label class="form-check-label" for="customRadio2">Or toggle this other custom radio</label>
+        </div>
+
+        <div class="mt-3">
+          <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="customSwitch1" checked>
+            <label class="form-check-label" for="customSwitch1">Toggle this switch element</label>
           </div>
-
-          <div class="form-check">
-            <input type="radio" id="customRadio1" name="customRadio" class="form-check-input">
-            <label class="form-check-label" for="customRadio1">Toggle this custom radio</label>
+          <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" disabled id="customSwitch2">
+            <label class="form-check-label" for="customSwitch2">Disabled switch element</label>
           </div>
-          <div class="form-check">
-            <input type="radio" id="customRadio2" name="customRadio" class="form-check-input">
-            <label class="form-check-label" for="customRadio2">Or toggle this other custom radio</label>
+        </div>
+
+        <div class="my-3">
+          <select class="form-select">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+
+        <div class="my-3">
+          <label for="customRange1">Example Custom range</label>
+          <input type="range" class="form-range" id="customRange1">
+        </div>
+
+        <div class="my-3">
+          <div class="custom-file">
+            <label class="form-label" for="customFile">Choose file</label>
+            <input type="file" class="form-control" id="customFile">
           </div>
+        </div>
 
-          <div class="mt-3">
-            <div class="form-check form-switch">
-              <input type="checkbox" class="form-check-input" id="customSwitch1" checked>
-              <label class="form-check-label" for="customSwitch1">Toggle this switch element</label>
-            </div>
-            <div class="form-check form-switch">
-              <input type="checkbox" class="form-check-input" disabled id="customSwitch2">
-              <label class="form-check-label" for="customSwitch2">Disabled switch element</label>
-            </div>
+        <h4 class="h5 mt-4 mb-3" id="input-group">Input Group</h4>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">@</span>
           </div>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+            aria-describedby="basic-addon1">
+        </div>
 
-          <div class="my-3">
-            <select class="form-select">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2">@example.com</span>
           </div>
+        </div>
 
-          <div class="my-3">
-            <label for="customRange1">Example Custom range</label>
-            <input type="range" class="form-range" id="customRange1">
+        <hr class="my-5">
+
+        <h2 class="h3 text-dark" id="utilities">Utilities</h2>
+
+        <h3 class="h4" id="border-radius">Border Radius</h3>
+
+        <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="rounded-right">
+        <img src="https://placehold.co/75x75" class="rounded-start" width="75" height="75" alt="rounded-left">
+        <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
+        <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
+
+        <br><br>
+
+        <img src="https://placehold.co/75x75" class="rounded-1" width="75" height="75" alt="rounded-sm">
+        <img src="https://placehold.co/75x75" class="rounded-3" width="75" height="75" alt="rounded-lg">
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="close-button">Close Button</h3>
+
+        <div class="ms-1 float-start mb-5">
+          <button type="button" class="btn-close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="screen-readers">Screen readers</h3>
+
+        <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="spacing">Spacing</h3>
+
+        <div>
+          <div class="ms-1 bg-light border" style="width: 100px;">
+            ml-1
           </div>
-
-          <div class="my-3">
-            <div class="custom-file">
-              <label class="form-label" for="customFile">Choose file</label>
-              <input type="file" class="form-control" id="customFile">
-            </div>
+          <div class="ms-2 bg-light border" style="width: 100px;">
+            ml-2
           </div>
-
-          <hr class="my-5">
-
-          <h2 class="h3 text-dark" id="utilities">Utilities</h2>
-
-          <h3 class="h4" id="border-radius">Border Radius</h3>
-
-          <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="rounded-right">
-          <img src="https://placehold.co/75x75" class="rounded-start" width="75" height="75" alt="rounded-left">
-          <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
-          <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
-
-          <br><br>
-
-          <img src="https://placehold.co/75x75" class="rounded-1" width="75" height="75" alt="rounded-sm">
-          <img src="https://placehold.co/75x75" class="rounded-3" width="75" height="75" alt="rounded-lg">
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="close-button">Close Button</h3>
-
-          <div class="ms-1 float-start mb-5">
-            <button type="button" class="btn-close" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div class="ms-3 bg-light border" style="width: 100px;">
+            ml-3
           </div>
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="screen-readers">Screen readers</h3>
-
-          <a class="visually-hidden visually-hidden-focusable" href="#content">Skip to main content</a>
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="spacing">Spacing</h3>
-
-          <div>
-            <div class="ms-1 bg-light border" style="width: 100px;">
-              ml-1
-            </div>
-            <div class="ms-2 bg-light border" style="width: 100px;">
-              ml-2
-            </div>
-            <div class="ms-3 bg-light border" style="width: 100px;">
-              ml-3
-            </div>
-            <div class="ms-4 bg-light border" style="width: 100px;">
-              ml-4
-            </div>
-            <div class="ms-5 bg-light border" style="width: 100px;">
-              ml-5
-            </div>
+          <div class="ms-4 bg-light border" style="width: 100px;">
+            ml-4
           </div>
-
-          <div class="mt-2">
-            <div class="ps-1 bg-light border" style="width: 100px;">
-              pl-1
-            </div>
-            <div class="ps-2 bg-light border" style="width: 100px;">
-              pl-2
-            </div>
-            <div class="ps-3 bg-light border" style="width: 100px;">
-              pl-3
-            </div>
-            <div class="ps-4 bg-light border" style="width: 100px;">
-              pl-4
-            </div>
-            <div class="ps-5 bg-light border" style="width: 100px;">
-              pl-5
-            </div>
+          <div class="ms-5 bg-light border" style="width: 100px;">
+            ml-5
           </div>
+        </div>
 
-          <hr class="my-5">
-
-          <h3 class="h4" id="text">Text</h3>
-
-          <p class="text-start">Left aligned text on all viewport sizes.</p>
-          <p class="text-end">Right aligned text on all viewport sizes.</p>
-
-          <p class="text-sm-start">Left aligned text on viewports sized SM (small) or wider.</p>
-          <p class="text-md-start">Left aligned text on viewports sized MD (medium) or wider.</p>
-          <p class="text-lg-start">Left aligned text on viewports sized LG (large) or wider.</p>
-          <p class="text-xl-start">Left aligned text on viewports sized XL (extra-large) or wider.</p>
-
-          <p class="text-sm-end">Right aligned text on viewports sized SM (small) or wider.</p>
-          <p class="text-md-end">Right aligned text on viewports sized MD (medium) or wider.</p>
-          <p class="text-lg-end">Right aligned text on viewports sized LG (large) or wider.</p>
-          <p class="text-xl-end">Right aligned text on viewports sized XL (extra-large) or wider.</p>
-
-          <p class="fw-bold">Bold text.</p>
-          <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
-          <p class="fw-normal">Normal weight text.</p>
-          <p class="fw-light">Light weight text.</p>
-          <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
-          <p class="fst-italic">Italic text.</p>
-
-          <p class="font-monospace">This is in monospace</p>
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="visibility">Visibility</h3>
-
-          <div class="visible">visible</div>
-          <div class="invisible">invisible</div>
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="embed">Embed</h3>
-
-          <div class="mb-5">
-            <!-- 16:9 aspect ratio -->
-            <div class="ratio ratio-16x9">
-              <iframe class="" src="https://example.com"></iframe>
-            </div>
+        <div class="mt-2">
+          <div class="ps-1 bg-light border" style="width: 100px;">
+            pl-1
           </div>
+          <div class="ps-2 bg-light border" style="width: 100px;">
+            pl-2
+          </div>
+          <div class="ps-3 bg-light border" style="width: 100px;">
+            pl-3
+          </div>
+          <div class="ps-4 bg-light border" style="width: 100px;">
+            pl-4
+          </div>
+          <div class="ps-5 bg-light border" style="width: 100px;">
+            pl-5
+          </div>
+        </div>
 
-          <h2 class="h3 text-dark">Deprecated components / Utilities</h2>
+        <hr class="my-5">
 
-          <h3 class="h4" id="jumbotron">Jumbotron</h3>
+        <h3 class="h4" id="text">Text</h3>
 
-          <div class="bg-light mb-4 rounded-2 py-5 px-3">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-              attention
-              to
-              featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.
+        <p class="text-start">Left aligned text on all viewport sizes.</p>
+        <p class="text-end">Right aligned text on all viewport sizes.</p>
+
+        <p class="text-sm-start">Left aligned text on viewports sized SM (small) or wider.</p>
+        <p class="text-md-start">Left aligned text on viewports sized MD (medium) or wider.</p>
+        <p class="text-lg-start">Left aligned text on viewports sized LG (large) or wider.</p>
+        <p class="text-xl-start">Left aligned text on viewports sized XL (extra-large) or wider.</p>
+
+        <p class="text-sm-end">Right aligned text on viewports sized SM (small) or wider.</p>
+        <p class="text-md-end">Right aligned text on viewports sized MD (medium) or wider.</p>
+        <p class="text-lg-end">Right aligned text on viewports sized LG (large) or wider.</p>
+        <p class="text-xl-end">Right aligned text on viewports sized XL (extra-large) or wider.</p>
+
+        <p class="fw-bold">Bold text.</p>
+        <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+        <p class="fw-normal">Normal weight text.</p>
+        <p class="fw-light">Light weight text.</p>
+        <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
+        <p class="fst-italic">Italic text.</p>
+
+        <p class="font-monospace">This is in monospace</p>
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="visibility">Visibility</h3>
+
+        <div class="visible">visible</div>
+        <div class="invisible">invisible</div>
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="embed">Embed</h3>
+
+        <div class="mb-5">
+          <!-- 16:9 aspect ratio -->
+          <div class="ratio ratio-16x9">
+            <iframe class="" src="https://example.com"></iframe>
+          </div>
+        </div>
+
+        <h2 class="h3 text-dark">Deprecated components / Utilities</h2>
+
+        <h3 class="h4" id="jumbotron">Jumbotron</h3>
+
+        <div class="bg-light mb-4 rounded-2 py-5 px-3">
+          <h1 class="display-4">Hello, world!</h1>
+          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+            attention
+            to
+            featured content or information.</p>
+          <hr class="my-4">
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.
+          </p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </div>
+
+        <div class="bg-light mb-4 rounded-2 py-5 px-3 rounded-0 px-0">
+          <div class="container">
+            <h1 class="display-4">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
             </p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
           </div>
+        </div>
 
-          <div class="bg-light mb-4 rounded-2 py-5 px-3 rounded-0 px-0">
-            <div class="container">
-              <h1 class="display-4">Fluid jumbotron</h1>
-              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
-              </p>
-            </div>
+        <hr class="my-5">
+
+        <h3 class="h4" id="media">Media</h3>
+
+        <div class="d-flex">
+          <img src="https://placehold.co/64x64" class="me-3" alt="">
+          <div class="flex-grow-1">
+            <h5 class="mt-0">Media heading</h5>
+            <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's
+              beautiful,
+              be
+              the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of
+              our
+              love,
+              angels are crying from up above. Yeah, you take me to utopia.</p>
           </div>
-
-          <hr class="my-5">
-
-          <h3 class="h4" id="media">Media</h3>
-
-          <div class="d-flex">
-            <img src="https://placehold.co/64x64" class="me-3" alt="">
-            <div class="flex-grow-1">
-              <h5 class="mt-0">Media heading</h5>
-              <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's
-                beautiful,
-                be
-                the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of
-                our
-                love,
-                angels are crying from up above. Yeah, you take me to utopia.</p>
-            </div>
-          </div>
+        </div>
 
       </main>
     </div>
