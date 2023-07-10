@@ -16,9 +16,27 @@
 
   <header class="mb-5">
     <h1 class="fw-normal h2 ms-1 me-1 text-center">Bootstrap 5 Migrate Tool</h1>
+    <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
+      and loads Bootstrap 4 CSS from a CDN. <a href="../dest/index.html">View the migrated test page</a>.</p>
+    <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs5">This is the migrated HTML test page which now uses
+      Bootstrap 5 class names and loads the latest Bootstrap 5 CSS from a CDN. <a href="../src/index.html">View the
+        original test page</a>.</p>
   </header>
 
-  <div class="row">
+  <script>
+    window.addEventListener('load', function () {
+      if (window.location.href.includes('src')) {
+        const introDiv = document.querySelector('#intro-bs4');
+        introDiv.classList.remove('d-none');
+      }
+      if (window.location.href.includes('dest')) {
+        const introDiv = document.querySelector('#intro-bs5');
+        introDiv.classList.remove('d-none');
+      }
+    });
+  </script>
+
+  <div class=" row">
 
     <div class="col-12 col-md-3 col-xl-2 order-md-last">
       <aside class="sticky-top text-body-secondary align-self-start mb-3 mb-xl-5">
@@ -183,7 +201,7 @@
         <h3 class="h4" id="forms">Forms</h3>
 
         <form class="mb-3">
-          <div class="d-flex align-items-center">
+          <div class="row align-items-center">
             <div class="col-sm-3 my-1">
               <label class="visually-hidden" for="inlineFormInputName">Name</label>
               <input type="text" class="form-control" id="inlineFormInputName" placeholder="Jane Doe">
@@ -421,18 +439,21 @@
 
           <div class="bg-light mb-4 rounded-2 py-5 px-3">
             <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+              attention
               to
               featured content or information.</p>
             <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.
+            </p>
             <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
           </div>
 
           <div class="bg-light mb-4 rounded-2 py-5 px-3 rounded-0 px-0">
             <div class="container">
               <h1 class="display-4">Fluid jumbotron</h1>
-              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+              </p>
             </div>
           </div>
 
@@ -444,9 +465,11 @@
             <img src="https://placehold.co/64x64" class="me-3" alt="">
             <div class="flex-grow-1">
               <h5 class="mt-0">Media heading</h5>
-              <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's beautiful,
+              <p>Will you do the same for me? It's time to face the music I'm no longer your muse. Heard it's
+                beautiful,
                 be
-                the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of our
+                the judge and my girls gonna take a vote. I can feel a phoenix inside of me. Heaven is jealous of
+                our
                 love,
                 angels are crying from up above. Yeah, you take me to utopia.</p>
             </div>
