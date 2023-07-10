@@ -67,7 +67,7 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bfont-weight-lighter\b([^"]*")/g, '$1fw-lighter$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bfont-weight-normal\b([^"]*")/g, '$1fw-normal$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bform-control-range\b([^"]*")/g, '$1form-range$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bform-row\b([^"]*")/g, '$1d-flex$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bform-row\b([^"]*")/g, '$1row$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron-fluid\b([^"]*")/g, '$1rounded-0 px-0$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bjumbotron\b([^"]*")/g, '$1bg-light mb-4 rounded-2 py-5 px-3$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bmedia-body\b([^"]*")/g, '$1flex-grow-1$2'))
