@@ -14,7 +14,7 @@
 
 <body class="container" style="max-width: 992px !important">
 
-  <header class="mb-5">
+  <header class="mb-5" style="min-height: 60px;">
     <h1 class="fw-normal h2 ms-1 me-1 text-center">Bootstrap 5 Migrate Tool</h1>
     <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
       and loads Bootstrap 4 CSS from a CDN. <a href="../dest/index.html">View the migrated test page</a>.</p>
@@ -48,7 +48,7 @@
             <li><a class="text-decoration-none m-2 text-muted" href="#dropdown-menus">Dropdown Menu</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#forms">Forms</a></li>
             <li class="text-black mt-3">Utilities</li>
-            <li><a class="text-decoration-none m-2 text-muted" href="#border-radius">Border Radius</a></li>
+            <li><a class="text-decoration-none m-2 text-muted" href="#border">Border</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#clearfix">Clearfix</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#close-button">Close Button</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#float">Float</a></li>
@@ -67,7 +67,7 @@
 
     <div class="col-12 col-md-9 col-xl-10">
       <main id="content" class="mb-5">
-        <h2 class="h3 text-dark" id="components">Components</h2>
+        <h2 class="text-dark mb-3" id="components">Components</h2>
 
         <h3 class="h4" id="badges">Badges</h3>
 
@@ -346,19 +346,39 @@
 
         <hr class="my-5">
 
-        <h2 class="h3 text-dark" id="utilities">Utilities</h2>
+        <h2 class="text-dark" id="utilities">Utilities</h2>
 
-        <h3 class="h4" id="border-radius">Border Radius</h3>
+        <h3 class="h4" id="border">Border</h3>
 
-        <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="rounded-right">
-        <img src="https://placehold.co/75x75" class="rounded-start" width="75" height="75" alt="rounded-left">
-        <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle">
-        <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill">
+        <h4 class="h6 mt-4" id="border-additive">Additive</h4>
+
+        <div class="border-end bg-light me-2 d-inline-block" style="height: 5rem;width:5rem"></div>
+        <div class="border-start bg-light me-2 d-inline-block" style="height: 5rem;width:5rem"></div>
+
+        <h4 class="h6 mt-4" id="border-subtractive">Subtractive</h4>
+
+        <div class="border-end-0 bg-light me-2 d-inline-block"
+          style="height: 5rem; width:5rem; border: 1px solid #dee2e6;"></div>
+        <div class="border-start-0 bg-light me-2 d-inline-block"
+          style="height: 5rem; width:5rem; border: 1px solid #dee2e6;"></div>
+
+        <h4 class="h6 mt-4" id="border-radius">Border Radius</h4>
+
+        <img src="https://placehold.co/75x75" class="rounded-end" width="75" height="75" alt="rounded-right"
+          title="rounded-right">
+        <img src="https://placehold.co/75x75" class="rounded-start" width="75" height="75" alt="rounded-left"
+          title="rounded-left">
+        <img src="https://placehold.co/75x75" class="rounded-circle" width="75" height="75" alt="rounded-circle"
+          title="rounded-circle">
+        <img src="https://placehold.co/150x75" class="rounded-pill" width="150" height="75" alt="rounded-pill"
+          title="rounded-pill">
 
         <br><br>
 
-        <img src="https://placehold.co/75x75" class="rounded-1" width="75" height="75" alt="rounded-sm">
-        <img src="https://placehold.co/75x75" class="rounded-3" width="75" height="75" alt="rounded-lg">
+        <img src="https://placehold.co/75x75" class="rounded-1" width="75" height="75" alt="rounded-sm"
+          title="rounded-sm">
+        <img src="https://placehold.co/75x75" class="rounded-3" width="75" height="75" alt="rounded-lg"
+          title="rounded-lg">
 
         <hr class="my-5">
 
