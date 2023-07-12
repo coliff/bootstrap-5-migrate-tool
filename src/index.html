@@ -12,7 +12,7 @@
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>">
 </head>
 
-<body class="container-xl">
+<body class="container" style="max-width: 992px !important">
 
   <header class="mb-5">
     <h1 class="font-weight-normal h2 ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
@@ -40,23 +40,24 @@
 
     <div class="col-12 col-md-3 col-xl-2 order-md-last">
       <aside class="sticky-top text-body-secondary align-self-start mb-3 mb-xl-5">
-        <h2 class="h6 pb-3 mb-3 border-bottom">On this page</h2>
+        <h2 class="small pb-3 mb-3 border-bottom">On this page</h2>
         <nav class="small" id="toc">
           <ul class="list-unstyled">
-            <li>Components</li>
+            <li class="text-black">Components</li>
             <li><a class="text-decoration-none m-2 text-muted" href="#badges">Badges</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#dropdown-menus">Dropdown Menu</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#forms">Forms</a></li>
-            <li class="mt-3">Utilities</li>
+            <li class="text-black mt-3">Utilities</li>
             <li><a class="text-decoration-none m-2 text-muted" href="#border-radius">Border Radius</a></li>
+            <li><a class="text-decoration-none m-2 text-muted" href="#clearfix">Clearfix</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#close-button">Close Button</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#float">Float</a></li>
-            <li><a class="text-decoration-none m-2 text-muted" href="#screen readers">Screen readers</a></li>
+            <li><a class="text-decoration-none m-2 text-muted" href="#screen-readers">Screen readers</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#spacing">Spacing</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#text">Text</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#visibility">Visibility</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#embed">Embed</a></li>
-            <li class="mt-3">Deprecated</li>
+            <li class="text-black mt-3">Deprecated</li>
             <li><a class="text-decoration-none m-2 text-muted" href="#jumbotron">Jumbotron</a></li>
             <li><a class="text-decoration-none m-2 text-muted" href="#media">Media</a></li>
           </ul>
@@ -225,7 +226,7 @@
               </div>
             </div>
             <div class="col-auto my-1">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="button" class="btn btn-primary">Submit</button>
             </div>
           </div>
         </form>
@@ -358,6 +359,15 @@
 
         <img src="https://placehold.co/75x75" class="rounded-sm" width="75" height="75" alt="rounded-sm">
         <img src="https://placehold.co/75x75" class="rounded-lg" width="75" height="75" alt="rounded-lg">
+
+        <hr class="my-5">
+
+        <h3 class="h4" id="clearfix">Clearfix</h3>
+
+        <div class="bg-info clearfix">
+          <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+          <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+        </div>
 
         <hr class="my-5">
 
@@ -533,6 +543,10 @@
         elements[i].removeAttribute('data-toggle');
       }
     }
+  </script>
+  <script>
+    var links = document.querySelectorAll('a[href="#"]');
+    links.forEach(function (link) { link.addEventListener("click", function (event) { event.preventDefault() }) })
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
