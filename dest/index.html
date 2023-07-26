@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bootstrap 5 Migrate Tool Test Page</title>
   <meta name="description" content="Test HTML page for the Bootstrap 4 to Bootstrap 5 Migrate Tool Script">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="author" href="https://christianoliff.com/">
   <link rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>⚡</text></svg>">
@@ -14,13 +14,17 @@
 
 <body class="container" style="max-width: 992px !important">
 
-  <header class="mb-5" style="min-height: 60px;">
+  <header class="mb-5 mt-3">
     <h1 class="fw-normal h2 ms-1 me-1 text-center">Bootstrap 5 Migrate Tool</h1>
-    <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
-      and loads Bootstrap 4 CSS from a CDN. <a href="../dest/index.html">View the migrated test page</a>.</p>
-    <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs5">This is the migrated HTML test page which now uses
-      Bootstrap 5 class names and loads the latest Bootstrap 5 CSS from a CDN. <a href="../src/index.html">View the
-        original test page</a>.</p>
+    <div style="min-height: 60px;">
+      <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
+        and loads Bootstrap 4 CSS and JavaScript from a CDN. <a href="../dest/index.html">View the migrated test
+          page</a>.
+      </p>
+      <p class="lead text-center ps-sm-5 pe-sm-5 d-none" id="intro-bs5">This is the migrated HTML test page which now
+        uses Bootstrap 5 class names and loads the latest Bootstrap 5 CSS and JavaScript from a CDN. <a
+          href="../src/index.html">View the original test page</a>.</p>
+    </div>
   </header>
 
   <script>
@@ -29,7 +33,7 @@
         const introDiv = document.querySelector('#intro-bs4');
         introDiv.classList.remove('d-none');
       }
-      if (window.location.href.includes('dest')) {
+      else {
         const introDiv = document.querySelector('#intro-bs5');
         introDiv.classList.remove('d-none');
       }
@@ -499,7 +503,7 @@
           </div>
         </div>
 
-        <h2 class="h3 text-dark">Deprecated components / Utilities</h2>
+        <h2 class="text-dark">Deprecated components / Utilities</h2>
 
         <h3 class="h4" id="jumbotron">Jumbotron</h3>
 
@@ -570,7 +574,7 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
