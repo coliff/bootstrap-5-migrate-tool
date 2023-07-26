@@ -14,13 +14,17 @@
 
 <body class="container" style="max-width: 992px !important">
 
-  <header class="mb-5" style="min-height: 60px;">
+  <header class="mb-5 mt-3">
     <h1 class="font-weight-normal h2 ml-1 mr-1 text-center">Bootstrap 5 Migrate Tool</h1>
-    <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
-      and loads Bootstrap 4 CSS from a CDN. <a href="../dest/index.html">View the migrated test page</a>.</p>
-    <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs5">This is the migrated HTML test page which now uses
-      Bootstrap 5 class names and loads the latest Bootstrap 5 CSS from a CDN. <a href="../src/index.html">View the
-        original test page</a>.</p>
+    <div style="min-height: 60px;">
+      <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs4">This HTML test page uses Bootstrap 4 class names
+        and loads Bootstrap 4 CSS and JavaScript from a CDN. <a href="../dest/index.html">View the migrated test
+          page</a>.
+      </p>
+      <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs5">This is the migrated HTML test page which now
+        uses Bootstrap 5 class names and loads the latest Bootstrap 5 CSS and JavaScript from a CDN. <a
+          href="../src/index.html">View the original test page</a>.</p>
+    </div>
   </header>
 
   <script>
@@ -29,7 +33,7 @@
         const introDiv = document.querySelector('#intro-bs4');
         introDiv.classList.remove('d-none');
       }
-      if (window.location.href.includes('dest')) {
+      else {
         const introDiv = document.querySelector('#intro-bs5');
         introDiv.classList.remove('d-none');
       }

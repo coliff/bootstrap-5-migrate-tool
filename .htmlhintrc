@@ -14,7 +14,7 @@
   "id-unique": true,
   "inline-script-disabled": true,
   "inline-style-disabled": false,
-  "spec-char-escape": true,
+  "spec-char-escape": false,
   "src-not-empty": true,
   "style-disabled": false,
   "tag-self-close": false,
