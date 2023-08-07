@@ -2,21 +2,22 @@ name: Lint Code Base
 
 on:
   push:
-    branches:
-      - 'main'
+    branches-ignore:
+      - "dependabot/**"
   pull_request:
-    branches:
-      - 'main'
+    branches-ignore:
+      - "dependabot/**"
 
 jobs:
   build:
     name: Lint Code Base
     runs-on: ubuntu-latest
-    if: ${{ github.actor != 'dependabot[bot]' }}
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Lint Code Base
         uses: github/super-linter/slim@v5

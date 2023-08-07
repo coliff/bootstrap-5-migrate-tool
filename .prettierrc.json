@@ -1,5 +1,25 @@
 {
   "bracketSameLine": true,
-  "printWidth": 180,
-  "singleQuote": true
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "htmlWhitespaceSensitivity": "css",
+        "printWidth": 180
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "printWidth": 180,
+        "singleQuote": true
+      }
+    },
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 100
+      }
+    }
+  ]
 }
