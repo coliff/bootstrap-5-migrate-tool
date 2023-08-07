@@ -5,8 +5,14 @@ function migrate() {
   return src(['src/*.html'])
     .pipe(
       replace(
-        /<link href="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css" rel="stylesheet">/g,
+        /<link href="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g,
         '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">',
+      ),
+    )
+    .pipe(
+      replace(
+        /<link href="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g,
+        '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">',
       ),
     )
     .pipe(
@@ -19,12 +25,6 @@ function migrate() {
       replace(
         /<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js">/g,
         '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js">',
-      ),
-    )
-    .pipe(
-      replace(
-        /<script src="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css">/g,
-        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">',
       ),
     )
     .pipe(
