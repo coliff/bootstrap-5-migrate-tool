@@ -52,6 +52,8 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-file-input\b([^"]*")/g, '$1form-control$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-file-label\b([^"]*")/g, '$1form-label$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-range\b([^"]*")/g, '$1form-range$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-select-sm\b([^"]*")/g, '$1form-select-sm$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-select-lg\b([^"]*")/g, '$1form-select-lg$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-select\b([^"]*")/g, '$1form-select$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bcustom-control custom-switch\b([^"]*")/g, '$1form-check form-switch$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bdropdown-menu-left\b([^"]*")/g, '$1dropdown-menu-start$2'))
