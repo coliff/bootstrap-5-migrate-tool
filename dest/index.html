@@ -45,6 +45,7 @@
             <ul class="list-unstyled">
               <li class="text-black">Components</li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#badges">Badges</a></li>
+              <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#carousel">Carousel</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#dropdown-menus">Dropdown Menu</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#forms">Forms</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#navbar">Navbar</a></li>
@@ -94,12 +95,49 @@
 
           <hr class="my-5" />
 
+          <h3 class="h4" id="carousel">Carousel</h3>
+
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+              <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+              <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="bg-dark d-block w-100 py-5 text-white text-center">
+                  First Slide
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg-secondary d-block w-100 py-5 text-white text-center">
+                  Second Slide
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="bg-primary d-block w-100 py-5 text-white text-center">
+                  Third Slide
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+          <hr class="my-5" />
+
           <h3 class="h4" id="dropdown-menu">Dropdown Menu</h3>
 
           <!-- Default dropright button -->
           <div class="mb-2" style="min-height: 30px">
             <div class="btn-group dropend">
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropright</button>
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropright</button>
               <div class="dropdown-menu">
                 <button class="dropdown-item" type="button">Action</button>
                 <button class="dropdown-item" type="button">Another action</button>
@@ -111,7 +149,7 @@
           <div class="mb-2" style="min-height: 30px">
             <div class="btn-group dropend">
               <button type="button" class="btn btn-sm btn-secondary">Split dropright</button>
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="visually-hidden">Toggle Dropright</span>
               </button>
               <div class="dropdown-menu">
@@ -124,7 +162,7 @@
           <!-- Default dropleft button -->
           <div class="mb-2" style="min-height: 30px; margin-left: 0px">
             <div class="btn-group dropstart">
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropleft</button>
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropleft</button>
               <div class="dropdown-menu">
                 <button class="dropdown-item" type="button">Action</button>
                 <button class="dropdown-item" type="button">Another action</button>
@@ -136,7 +174,7 @@
           <div class="mb-2" style="min-height: 30px; margin-left: 0px">
             <div class="btn-group">
               <div class="btn-group dropstart">
-                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                   <span class="visually-hidden">Toggle Dropleft</span>
                 </button>
                 <div class="dropdown-menu">
@@ -150,7 +188,7 @@
 
           <div class="mb-2" style="min-height: 30px">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Right-aligned menu</button>
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Right-aligned menu</button>
               <div class="dropdown-menu dropdown-menu-end">
                 <button class="dropdown-item" type="button">Action</button>
                 <button class="dropdown-item" type="button">Another action</button>
@@ -160,10 +198,10 @@
 
           <div class="mb-2" style="min-height: 30px">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-display="static" aria-expanded="false">
                 Left-aligned but right aligned when large screen
               </button>
-              <div class="dropdown-menu dropdown-menu-lg-right">
+              <div class="dropdown-menu dropdown-menu-lg-end">
                 <button class="dropdown-item" type="button">Action</button>
                 <button class="dropdown-item" type="button">Another action</button>
               </div>
@@ -172,10 +210,10 @@
 
           <div style="min-height: 30px">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" data-display="static" aria-expanded="false">
+              <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-display="static" aria-expanded="false">
                 Right-aligned but left aligned when large screen
               </button>
-              <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-left">
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
                 <button class="dropdown-item" type="button">Action</button>
                 <button class="dropdown-item" type="button">Another action</button>
               </div>
@@ -353,7 +391,7 @@
 
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -366,7 +404,7 @@
                   <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown
                   </a>
                   <div class="dropdown-menu">
@@ -575,33 +613,6 @@
       </p>
     </footer>
 
-    <script>
-      if (window.location.href.includes("dest")) {
-        const elements = document.querySelectorAll('[data-target="#navbarSupportedContent"]');
-        for (let i = 0; i < elements.length; i++) {
-          elements[i].setAttribute("data-bs-target", "#navbarSupportedContent");
-          elements[i].removeAttribute("data-target");
-        }
-      }
-    </script>
-    <script>
-      if (window.location.href.includes("dest")) {
-        const elements = document.querySelectorAll('[data-toggle="collapse"]');
-        for (let i = 0; i < elements.length; i++) {
-          elements[i].setAttribute("data-bs-toggle", "collapse");
-          elements[i].removeAttribute("data-toggle");
-        }
-      }
-    </script>
-    <script>
-      if (window.location.href.includes("dest")) {
-        const elements = document.querySelectorAll('[data-toggle="dropdown"]');
-        for (let i = 0; i < elements.length; i++) {
-          elements[i].setAttribute("data-bs-toggle", "dropdown");
-          elements[i].removeAttribute("data-toggle");
-        }
-      }
-    </script>
     <script>
       var links = document.querySelectorAll('a[href="#"]');
       links.forEach(function (link) {
