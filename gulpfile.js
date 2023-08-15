@@ -33,6 +33,19 @@ function migrate() {
         '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js">',
       ),
     )
+    .pipe(
+      replace(
+        /<link href="https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g,
+        '<link href="https://unpkg.com/bootstrap@5.3.1/dist/css/bootstrap.min.css">',
+      ),
+    )
+    .pipe(
+      replace(
+        /<script src="https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js">/g,
+        '<script src="https://unpkg.com/bootstrap@5.3.1/dist/js/bootstrap.min.js">',
+      ),
+    )
+    // .pipe(replace(/data-(\w+)/g, 'data-bs-$1'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bbadge-danger\b([^"]*")/g, '$1bg-danger$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bbadge-dark\b([^"]*")/g, '$1bg-dark$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*"[^"]*)\bbadge-info\b([^"]*")/g, '$1bg-info$2'))
