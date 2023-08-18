@@ -52,6 +52,7 @@ function migrate() {
     .pipe(replace(/\sdata-content=/g, ' data-bs-content='))
     .pipe(replace(/\sdata-custom-class=/g, ' data-bs-custom-class='))
     .pipe(replace(/\sdata-delay=/g, ' data-bs-delay='))
+    .pipe(replace(/\sdata-dismiss=/g, ' data-bs-dismiss='))
     .pipe(replace(/\sdata-html=/g, ' data-bs-html='))
     .pipe(replace(/\sdata-interval=/g, ' data-bs-interval='))
     .pipe(replace(/\sdata-keyboard=/g, ' data-bs-keyboard='))
@@ -162,8 +163,27 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-lg-right\b([^'"]*['"])/g, '$1text-lg-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-xl-right\b([^'"]*['"])/g, '$1text-xl-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-monospace\b([^'"]*['"])/g, '$1font-monospace$2'))
+    .pipe(
+      replace(
+        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      ),
+    )
+    .pipe(
+      replace(
+        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>',
+      ),
+    )
+    .pipe(
+      replace(
+        '<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
+        '<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>',
+      ),
+    )
     .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
     .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b([^'"]*['"])/g, '<select$1class="$2form-select$3'))
+    .pipe(replace('<span aria-hidden="true">&times;</span>', ''),)
     .pipe(dest('dest/'));
 }
 
