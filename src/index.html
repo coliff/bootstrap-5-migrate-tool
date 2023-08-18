@@ -50,7 +50,9 @@
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#carousel">Carousel</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#dropdown-menus">Dropdown Menu</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#forms">Forms</a></li>
+              <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#modal">Modal</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#navbar">Navbar</a></li>
+              <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#toasts">Toasts</a></li>
               <li class="text-black mt-3 mt-xl-4">Utilities</li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#border">Border</a></li>
               <li class="pt-xl-1"><a class="text-decoration-none m-2 text-muted" href="#clearfix">Clearfix</a></li>
@@ -385,6 +387,36 @@
 
           <hr class="my-5" />
 
+          <h3 class="h4" id="modal">Modal</h3>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Launch demo modal
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr class="my-5" />
+
           <h3 class="h4" id="navbar">Navbar</h3>
 
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -427,6 +459,21 @@
               </form>
             </div>
           </nav>
+
+          <hr class="my-5" />
+
+          <h3 class="h4" id="toasts">Toasts</h3>
+
+          <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-animation="false" data-autohide="false">
+            <div class="toast-header">
+              <div class="rounded bg-primary mr-2 p-2"></div>
+              <strong class="mr-auto">Bootstrap</strong>
+              <small>11 mins ago</small>
+            </div>
+            <div class="toast-body">
+              Hello, world! This is a toast message.
+            </div>
+          </div>
 
           <hr class="my-5" />
 
