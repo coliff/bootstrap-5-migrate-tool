@@ -71,6 +71,7 @@ function migrate() {
     .pipe(replace(/\sdata-touch=/g, ' data-bs-touch='))
     .pipe(replace(/\sdata-trigger=/g, ' data-bs-trigger='))
     .pipe(replace(/\sdata-wrap=/g, ' data-bs-wrap='))
+    .pipe(replace(/\[data-toggle=/g, '[data-bs-toggle='))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-danger\b([^'"]*['"])/g, '$1bg-danger$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-dark\b([^'"]*['"])/g, '$1bg-dark$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-info\b([^'"]*['"])/g, '$1bg-info$2'))
