@@ -72,15 +72,15 @@ function migrate() {
     .pipe(replace(/\sdata-trigger=/g, ' data-bs-trigger='))
     .pipe(replace(/\sdata-wrap=/g, ' data-bs-wrap='))
     .pipe(replace(/\[data-toggle=/g, '[data-bs-toggle='))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-danger\b([^'"]*['"])/g, '$1bg-danger$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-dark\b([^'"]*['"])/g, '$1bg-dark$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-info\b([^'"]*['"])/g, '$1bg-info$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-light\b([^'"]*['"])/g, '$1bg-light$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-danger\b([^'"]*['"])/g, '$1text-bg-danger$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-dark\b([^'"]*['"])/g, '$1text-bg-dark$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-info\b([^'"]*['"])/g, '$1text-bg-info$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-light\b([^'"]*['"])/g, '$1text-bg-light$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-pill\b([^'"]*['"])/g, '$1rounded-pill$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-primary\b([^'"]*['"])/g, '$1bg-primary$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-secondary\b([^'"]*['"])/g, '$1bg-secondary$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-success\b([^'"]*['"])/g, '$1bg-success$2'))
-    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-warning\b([^'"]*['"])/g, '$1bg-warning$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-primary\b([^'"]*['"])/g, '$1text-bg-primary$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-secondary\b([^'"]*['"])/g, '$1text-bg-secondary$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-success\b([^'"]*['"])/g, '$1text-bg-success$2'))
+    .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-warning\b([^'"]*['"])/g, '$1text-bg-warning$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bborder-left\b([^'"]*['"])/g, '$1border-start$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bborder-right\b([^'"]*['"])/g, '$1border-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bclose\b([^'"]*['"])/g, '$1btn-close$2'))
@@ -164,24 +164,6 @@ function migrate() {
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-lg-right\b([^'"]*['"])/g, '$1text-lg-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-xl-right\b([^'"]*['"])/g, '$1text-xl-end$2'))
     .pipe(replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-monospace\b([^'"]*['"])/g, '$1font-monospace$2'))
-    .pipe(
-      replace(
-        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
-        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-      ),
-    )
-    .pipe(
-      replace(
-        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
-        '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>',
-      ),
-    )
-    .pipe(
-      replace(
-        '<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"><span aria-hidden="true">&times;</span></button>',
-        '<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>',
-      ),
-    )
     .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
     .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b([^'"]*['"])/g, '<select$1class="$2form-select$3'))
     .pipe(replace('<span aria-hidden="true">&times;</span>', ''),)
