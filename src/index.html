@@ -138,9 +138,7 @@
           <h3 class="h4" id="collapse">Collapse</h3>
 
           <p>
-            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-              Link with href
-            </a>
+            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> Link with href </a>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
               Button with data-target
             </button>
@@ -411,9 +409,7 @@
           <h3 class="h4" id="modal">Modal</h3>
 
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Launch demo modal
-          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>
 
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -425,9 +421,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
-                  ...
-                </div>
+                <div class="modal-body">...</div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="button" class="btn btn-primary">Save changes</button>
@@ -485,7 +479,14 @@
 
           <h3 class="h4" id="popovers">Popovers</h3>
 
-          <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+          <button
+            type="button"
+            class="btn btn-lg btn-danger"
+            data-toggle="popover"
+            title="Popover title"
+            data-content="And here's some amazing content. It's very engaging. Right?">
+            Click to toggle popover
+          </button>
 
           <hr class="my-5" />
 
@@ -497,30 +498,18 @@
               <strong class="mr-auto">Bootstrap</strong>
               <small>11 mins ago</small>
             </div>
-            <div class="toast-body">
-              Hello, world! This is a toast message.
-            </div>
+            <div class="toast-body">Hello, world! This is a toast message.</div>
           </div>
 
           <hr class="my-5" />
 
           <h3 class="h4" id="tooltips">Tooltips</h3>
 
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-            Tooltip on top
-          </button>
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
-            Tooltip on right
-          </button>
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
-            Tooltip on bottom
-          </button>
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
-            Tooltip on left
-          </button>
-          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
-            Tooltip with HTML
-          </button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+          <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">Tooltip with HTML</button>
 
           <hr class="my-5" />
 
@@ -721,13 +710,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
       $(function () {
-        $('[data-toggle="popover"]').popover()
-      })
+        $('[data-toggle="popover"]').popover();
+      });
     </script>
     <script>
       $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      })
+        $('[data-toggle="tooltip"]').tooltip();
+      });
     </script>
   </body>
 </html>
