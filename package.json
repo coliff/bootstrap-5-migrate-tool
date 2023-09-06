@@ -32,9 +32,9 @@
     "gulp-replace": "^1.1.4"
   },
   "devDependencies": {
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
-    "prettier": "3.0.2"
+    "prettier": "3.0.3"
   },
   "files": [
     "gulpfile.js"
