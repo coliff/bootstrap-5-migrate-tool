@@ -10,65 +10,89 @@ function migrate() {
     src(['src/*.{html,htm,php}'])
       // CDNJS CSS
       .pipe(
-        replace(/<link href="https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g, function () {
-          CDNLinksChanged++;
-          return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">';
-        }),
+        replace(
+          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
+          function () {
+            CDNLinksChanged++;
+            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">';
+          },
+        ),
       )
       // JSDelivr CSS
       .pipe(
-        replace(/<link href="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g, function () {
+        replace(/<link href=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">';
         }),
       )
       // Stackpath CSS
       .pipe(
-        replace(/<link href="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g, function () {
+        replace(/<link href=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">';
         }),
       )
       // UNPKG CSS
       .pipe(
-        replace(/<link href="https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css" rel="stylesheet" ?\/?>/g, function () {
+        replace(/<link href=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://unpkg.com/bootstrap@5.3.2/dist/css/bootstrap.min.css">';
         }),
       )
       // CDNJS JS
       .pipe(
-        replace(/<script src="https:\/\/cdn\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js">/g, function () {
+        replace(/<script src=["']https:\/\/cdn\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js">';
         }),
       )
-      // JSDelivr Bundle JS
-      .pipe(
-        replace(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js">/g, function () {
-          CDNLinksChanged++;
-          return '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">';
-        }),
-      )
       // JSDelivr JS
       .pipe(
-        replace(/<script src="https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js">/g, function () {
+        replace(/<script src=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js">';
         }),
       )
       // Stackpath JS
       .pipe(
-        replace(/<script src="https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js">/g, function () {
+        replace(/<script src=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js">';
         }),
       )
       // UNPKG JS
       .pipe(
-        replace(/<script src="https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js">/g, function () {
+        replace(/<script src=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.min.js">';
+        }),
+      )
+      // CDNJS Bundle JS
+      .pipe(
+        replace(/<script src=["']https:\/\/cdn\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
+          CDNLinksChanged++;
+          return '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js">';
+        }),
+      )
+      // JSDelivr Bundle JS
+      .pipe(
+        replace(/<script src=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
+          CDNLinksChanged++;
+          return '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">';
+        }),
+      )
+      // Stackpath Bundle JS
+      .pipe(
+        replace(/<script src=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
+          CDNLinksChanged++;
+          return '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">';
+        }),
+      )
+      // UNPKG Bundle JS
+      .pipe(
+        replace(/<script src=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
+          CDNLinksChanged++;
+          return '<script src="https://unpkg.com/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">';
         }),
       )
       .pipe(
