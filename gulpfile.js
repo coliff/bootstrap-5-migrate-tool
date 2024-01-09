@@ -7,7 +7,7 @@ function migrate() {
   let cssClassChanged = 0;
 
   return (
-    src(['src/*.{asp,hbs,html,htm,php,vue}'])
+    src(['src/*.{asp,aspx,cshtml,hbs,html,htm,php,vue}'])
       // CDNJS CSS
       .pipe(
         replace(
