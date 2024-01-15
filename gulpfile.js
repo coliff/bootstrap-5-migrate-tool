@@ -7,14 +7,14 @@ function migrate() {
   let cssClassChanged = 0;
 
   return (
-    src(['src/*.{asp,aspx,cshtml,hbs,html,htm,php,vue}'])
+    src(['src/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'])
       // CDNJS CSS
       .pipe(
         replace(
-          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
+          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/twitter-bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
           function () {
             CDNLinksChanged++;
-            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">';
+            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">';
           },
         ),
       )
