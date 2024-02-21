@@ -28,8 +28,8 @@
     "test": "npm run lint && npm run prettier && gulp migrate"
   },
   "dependencies": {
-    "gulp": "^4.0.2",
-    "gulp-replace": "^1.1.4"
+    "gulp": "4.0.2",
+    "gulp-replace": "1.1.4"
   },
   "devDependencies": {
     "eslint": "8.56.0",
