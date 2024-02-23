@@ -1,13 +1,19 @@
 const replace = require('gulp-replace');
 const { src, dest } = require('gulp');
 
+var argv = require('yargs').argv;
+var input = (argv.input === undefined) ? "src/*" : argv.input;
+console.log(" INPUT:" + input)
+var output = (argv.output === undefined) ? "dest/" : argv.output;
+console.log("OUTPUT:" + output)
+
 function migrate() {
   let dataAttrChanged = 0;
   let CDNLinksChanged = 0;
   let cssClassChanged = 0;
 
   return (
-    src(['src/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'])
+    src([input + '/*'])
       // CDNJS CSS
       .pipe(
         replace(
@@ -668,7 +674,7 @@ function migrate() {
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b([^'"]*['"])/g, '<select$1class="$2form-select$3'))
       .pipe(replace('<span aria-hidden="true">&times;</span>', ''))
-      .pipe(dest('dest/'))
+      .pipe(dest(output))
       .on('end', function () {
         console.log(`Completed! Changed ${cssClassChanged} CSS class names, ${dataAttrChanged} data-attributes and ${CDNLinksChanged} CDN links.`);
       })
