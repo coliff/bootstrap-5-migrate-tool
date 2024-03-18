@@ -17,22 +17,22 @@
       <div style="min-height: 60px">
         <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs4">
           This HTML test page uses Bootstrap 4 class names and loads Bootstrap 4 CSS and JavaScript from a CDN.
-          <a href="../dest/index.html">View the migrated test page</a>.
+          <a href="../dest/src/index.html">View the migrated test page</a>.
         </p>
         <p class="lead text-center pl-sm-5 pr-sm-5 d-none" id="intro-bs5">
           This is the migrated HTML test page which now uses Bootstrap 5 class names and loads the latest Bootstrap 5 CSS and JavaScript from a CDN.
-          <a href="../src/index.html">View the original test page</a>.
+          <a href="../../src/index.html">View the original test page</a>.
         </p>
       </div>
     </header>
 
     <script>
       window.addEventListener("load", function () {
-        if (window.location.href.includes("src")) {
-          const introDiv = document.querySelector("#intro-bs4");
+        if (window.location.href.includes("dest")) {
+          const introDiv = document.querySelector("#intro-bs5");
           introDiv.classList.remove("d-none");
         } else {
-          const introDiv = document.querySelector("#intro-bs5");
+          const introDiv = document.querySelector("#intro-bs4");
           introDiv.classList.remove("d-none");
         }
       });
