@@ -21,7 +21,7 @@
   },
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp migrate",
+    "start": "gulp migrate --src ./src --dest ./dest",
     "htmlhint": "npx htmlhint **/*.html",
     "lint": "eslint gulpfile.js",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",

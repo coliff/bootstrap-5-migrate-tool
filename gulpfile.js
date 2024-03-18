@@ -1,20 +1,43 @@
 const replace = require('gulp-replace');
 const { src, dest } = require('gulp');
 
-function migrate() {
+/**
+ * Options that may be set via cli flags \
+ * For example: \
+ * `npx gulp migrate  --src "./src-dir" --overwrite --verbose` */
+const DEFAULT_OPTIONS = {
+  /** string that will be passed to the gulp {@link src} function */
+  src: './src',
+  /** string that will be passed to the gulp {@link dest} function */
+  dest: `./`,
+  /** overwrite the existing files in place. **Cannot be used with --dest flag** */
+  overwrite: true,
+  /** print the path of each generated / modified file to the console */
+  verbose: true,
+  /** Default glob for files to search in. Default: Search all folder and files recursively */
+  defaultFileGlob: '**/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'
+};
+
+async function migrate(cb) {
+  const options = parseArgs();
+
+  console.log(options)
+  // process.exit(0)
+
   let dataAttrChanged = 0;
   let CDNLinksChanged = 0;
   let cssClassChanged = 0;
 
   return (
-    src(['src/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'])
+    /** when overwrite flag is true, set base option */
+    src([`${options.src}/${options.defaultFileGlob}`], { base: options.overwrite ? './' : undefined })
       // CDNJS CSS
       .pipe(
         replace(
-          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/twitter-bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
+          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
           function () {
             CDNLinksChanged++;
-            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">';
+            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">';
           },
         ),
       )
@@ -668,11 +691,57 @@ function migrate() {
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b([^'"]*['"])/g, '<select$1class="$2form-select$3'))
       .pipe(replace('<span aria-hidden="true">&times;</span>', ''))
-      .pipe(dest('dest/'))
+      .pipe(dest(options.dest))
+      .on('data', (data) => {
+        if (options.verbose) {
+          console.log(`Wrote file: ${data.path}`);
+        }
+      })
       .on('end', function () {
         console.log(`Completed! Changed ${cssClassChanged} CSS class names, ${dataAttrChanged} data-attributes and ${CDNLinksChanged} CDN links.`);
+        cb();
       })
   );
+}
+
+/** parses cli args array and return an options object */
+function parseArgs() {
+  const options = Object.assign({}, DEFAULT_OPTIONS);
+
+  const argv = process.argv;
+  argv.forEach((flag, i) => {
+    const value = argv[i + 1];
+    switch (flag) {
+      case '--src': {
+        options.src = value;
+        break;
+      }
+      case '--dest': {
+        options.dest = value;
+        break;
+      }
+      case '--glob': {
+        options.defaultFileGlob = value;
+        break;
+      }
+      case '--overwrite': {
+        options.overwrite = true;
+        options.dest = './';
+        if (argv.includes('--dest')) {
+          throw new Error('Cannot use --overwrite and --dest options together.');
+        }
+        break;
+      }
+      case '--verbose': {
+        options.verbose = true;
+        break;
+      }
+
+      default:
+        break;
+    }
+  });
+  return options;
 }
 
 exports.migrate = migrate;
