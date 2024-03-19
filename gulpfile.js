@@ -120,7 +120,7 @@ async function migrate(cb) {
       )
       .pipe(
         replace(
-          /\sdata-(animation|autohide|boundary|container|content|custom-class|delay|dismiss|display|html|interval|keyboard|method|offset|pause|placement|popper-config|reference|ride|selector|slide(-to)?|target|template|title|toggle|touch|trigger|wrap)=/g,
+          /\sdata-(animation|autohide|backdrop|boundary|container|content|custom-class|delay|dismiss|display|html|interval|keyboard|method|offset|pause|placement|popper-config|reference|ride|selector|slide(-to)?|target|template|title|toggle|touch|trigger|wrap)=/g,
           function (match, p1) {
             if (p1 === 'toggle' && match.includes('data-bs-toggle="')) {
               return match;
