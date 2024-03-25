@@ -7,7 +7,7 @@ A command-line script designed to help you upgrade your Bootstrap 4 projects to 
 - Replaces all the Bootstrap 4 class names with the renamed Bootstrap 5 class names
 - Replaces deprecated components (such as `.jumbotron` and `.media`) with utility classes
 - Renames all the data attributes (such as `data-toggle` and `data-target`) to the new names
-- Updates all Bootstrap v4 CDN links (jsdelivr.net, unpkg.com and stackpath.bootstrapcdn.com) to latest version of Bootstrap v5
+- Updates all Bootstrap v4 CDN links (cloudflare, jsdelivr, stackpath.bootstrapcdn.com and unpkg) to latest version of Bootstrap v5
 
 ## Usage
 
