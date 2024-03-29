@@ -8,6 +8,9 @@ A command-line script designed to help you upgrade your Bootstrap 4 projects to 
 - Replaces deprecated components (such as `.jumbotron` and `.media`) with utility classes
 - Renames all the data attributes (such as `data-toggle` and `data-target`) to the new names
 - Updates all Bootstrap v4 CDN links (cloudflare, jsdelivr, stackpath.bootstrapcdn.com and unpkg) to latest version of Bootstrap v5
+- Options to overwrite the existing files in place or save the migrated files to a different folder
+- Can convert not only HTML files but also ASP, CSHTML, EJS, ERB, HBS, JSP, PHP, VUE, and other template files
+- Provides a summary of the changes made
 
 ## Usage
 
