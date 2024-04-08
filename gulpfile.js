@@ -21,7 +21,7 @@ const DEFAULT_OPTIONS = {
 async function migrate(cb) {
   const options = parseArgs();
 
-  console.log(options)
+  console.log(options);
   // process.exit(0)
 
   let dataAttrChanged = 0;
