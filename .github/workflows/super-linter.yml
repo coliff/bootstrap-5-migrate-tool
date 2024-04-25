@@ -8,6 +8,9 @@ on:
     branches-ignore:
       - "dependabot/**"
 
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Lint Code Base
