@@ -203,7 +203,7 @@ async function migrate(cb) {
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=['"][^'"]*)\bclose\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"])\s*\bclose\b\s*(['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'btn-close' + p2;
         }),
