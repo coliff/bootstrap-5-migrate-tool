@@ -25,7 +25,7 @@
     "htmlhint": "npx htmlhint **/*.html",
     "lint": "eslint *.js",
     "prettier": "prettier --write \"**/*.{html,js,json,md,yml}\"",
-    "test": "npm run lint && npm run prettier && gulp migrate"
+    "test": "npm run lint && npm run prettier && npm run start"
   },
   "dependencies": {
     "gulp": "5.0.0",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.3.0",
-    "eslint": "9.1.0",
+    "eslint": "9.3.0",
     "eslint-config-prettier": "9.1.0",
     "prettier": "3.2.5"
   },
