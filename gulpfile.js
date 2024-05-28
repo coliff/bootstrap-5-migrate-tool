@@ -15,7 +15,7 @@ const DEFAULT_OPTIONS = {
   /** print the path of each generated / modified file to the console */
   verbose: true,
   /** Default glob for files to search in. Default: Search all folder and files recursively */
-  defaultFileGlob: '**/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'
+  defaultFileGlob: '**/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}',
 };
 
 async function migrate(cb) {
@@ -203,7 +203,7 @@ async function migrate(cb) {
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bclose\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=['"][^'"]*)\bclose\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'btn-close' + p2;
         }),
