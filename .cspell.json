@@ -1,6 +1,14 @@
 {
   "version": "0.2",
-  "words": ["bootstrapcdn", "gulpfile", "jsdelivr", "Oliff", "viewports"],
+  "words": [
+    "bootstrapcdn",
+    "codeql",
+    "coliff",
+    "gulpfile",
+    "jsdelivr",
+    "Oliff",
+    "viewports"
+  ],
   "language": "en,en-US",
   "allowCompoundWords": true,
   "ignorePaths": [".cspell.json", "**/node_modules/**"],
