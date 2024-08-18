@@ -139,25 +139,25 @@ async function migrate(cb) {
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-danger\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-danger' + p2;
+          return p1 + 'bg-danger' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-dark\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-dark' + p2;
+          return p1 + 'bg-dark' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-info\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-info' + p2;
+          return p1 + 'bg-info' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-light\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-light' + p2;
+          return p1 + 'bg-light' + p2;
         }),
       )
       .pipe(
@@ -169,25 +169,25 @@ async function migrate(cb) {
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-primary\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-primary' + p2;
+          return p1 + 'bg-primary' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-secondary\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-secondary' + p2;
+          return p1 + 'bg-secondary' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-success\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-success' + p2;
+          return p1 + 'bg-success' + p2;
         }),
       )
       .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-warning\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
-          return p1 + 'text-bg-warning' + p2;
+          return p1 + 'bg-warning' + p2;
         }),
       )
       .pipe(
