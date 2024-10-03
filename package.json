@@ -23,7 +23,7 @@
   "scripts": {
     "start": "gulp migrate --src ./src --dest ./dest",
     "htmlhint": "npx htmlhint **/*.html",
-    "lint": "npx eslint@8.57.1 *.js",
+    "lint": "npx eslint@8.57.1 *.js --fix",
     "prettier": "npx prettier@3 --write \"**/*.{html,js,md,yml}\"",
     "test": "npm run lint && npm run prettier && npm run start"
   },
