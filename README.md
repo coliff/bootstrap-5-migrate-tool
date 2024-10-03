@@ -41,9 +41,16 @@ For example: `npx gulp migrate  --src "./src-dir" --overwrite --verbose`
 - `dest: ./`- string that will be passed to the gulp {@link dest} function
 - `overwrite: true` - overwrite the existing files in place. **Cannot be used with --dest flag**
 - `verbose: true`- print the path of each generated / modified file to the console
-- `defaultFileGlob: '**/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}'` - default glob for files to search in. Default: Search all folder and files recursively
+- `defaultFileGlob: '**/*.{asp,aspx,cshtml,gohtml,gotmpl,ejs,erb,hbs,html,htm,js,jsp,php,ts,twig,vue}'` - default glob for files to search in. Default: Search all folder and files recursively
 
 ## Demo
 
 - Input: [Bootstrap 4 HTML template](https://coliff.github.io/bootstrap-5-migrate-tool/src/index.html)
 - Output: [Bootstrap 5 HTML template](https://coliff.github.io/bootstrap-5-migrate-tool/dest/src/index.html)
+
+## Migration Tips
+
+- Use the [Bootstrap Deprecated Classes browser extension](https://github.com/julien-deramond/bootstrap-deprecated-classes-extension) on your site post migration to see if anything is missed
+- If you used negative margins/padding classes (e.g, `.mt-n1` or `.pb-n2`) note that these are not included in the Bootstrap CSS CDN so you may want to add those
+- Note that Bootstrap v5 no longer includes print styles. Consider using: [Bootstrap Print CSS](https://github.com/coliff/bootstrap-print-css)
+- Bootstrap has issues with Windows Contrast themes. Consider using: [Bootstrap Forced Colors CSS](https://github.com/coliff/bootstrap-forced-colors-css)
