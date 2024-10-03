@@ -15,7 +15,7 @@ const DEFAULT_OPTIONS = {
   /** print the path of each generated / modified file to the console */
   verbose: true,
   /** Default glob for files to search in. Default: Search all folder and files recursively */
-  defaultFileGlob: '**/*.{asp,aspx,cshtml,ejs,erb,hbs,html,htm,jsp,php,twig,vue}',
+  defaultFileGlob: '**/*.{asp,aspx,cshtml,gohtml,gotmpl,ejs,erb,hbs,html,htm,js,jsp,php,ts,twig,vue}',
 };
 
 async function migrate(cb) {

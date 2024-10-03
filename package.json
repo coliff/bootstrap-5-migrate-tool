@@ -23,21 +23,25 @@
   "scripts": {
     "start": "gulp migrate --src ./src --dest ./dest",
     "htmlhint": "npx htmlhint **/*.html",
-    "lint": "eslint *.js",
-    "prettier": "prettier --write \"**/*.{html,js,md,yml}\"",
+    "lint": "npx eslint@8.57.1 *.js",
+    "prettier": "npx prettier@3 --write \"**/*.{html,js,md,yml}\"",
     "test": "npm run lint && npm run prettier && npm run start"
   },
   "dependencies": {
     "gulp": "5.0.0",
     "gulp-replace": "1.1.4"
   },
-  "devDependencies": {
-    "@eslint/js": "9.9.0",
-    "eslint": "9.11.1",
-    "eslint-config-prettier": "9.1.0",
-    "prettier": "3.3.3"
-  },
   "files": [
     "gulpfile.js"
-  ]
+  ],
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    }
+  }
 }
