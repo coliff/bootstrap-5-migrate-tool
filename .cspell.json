@@ -4,6 +4,8 @@
     "bootstrapcdn",
     "codeql",
     "coliff",
+    "gohtml",
+    "gotmpl",
     "gulpfile",
     "jsdelivr",
     "Oliff",
@@ -11,6 +13,9 @@
   ],
   "language": "en,en-US",
   "allowCompoundWords": true,
-  "ignorePaths": [".cspell.json", "**/node_modules/**"],
+  "ignorePaths": [
+    ".cspell.json",
+    "**/node_modules/**"
+  ],
   "useGitignore": true
 }
