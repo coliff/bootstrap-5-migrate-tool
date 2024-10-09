@@ -688,6 +688,12 @@ async function migrate(cb) {
           return p1 + 'font-monospace' + p2;
         }),
       )
+      .pipe(
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bwidth\b([^'"]*['"])/g, function (match, p1, p2) {
+          cssClassChanged++;
+          return p1 + 'collapse-horizontal' + p2;
+        }),
+      )
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
       .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b([^'"]*['"])/g, '<select$1class="$2form-select$3'))
       .pipe(replace('<span aria-hidden="true">&times;</span>', ''))
