@@ -16,9 +16,6 @@
   },
   "license": "MIT",
   "author": "Christian Oliff (https://christianoliff.com)",
-  "engines": {
-    "node": ">=18"
-  },
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp migrate --src ./src --dest ./dest",
@@ -43,5 +40,8 @@
       "node": true,
       "es6": true
     }
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

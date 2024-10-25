@@ -605,6 +605,12 @@ async function migrate(cb) {
         }),
       )
       .pipe(
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bsr-only sr-only-focusable\b([^'"]*['"])/g, function (match, p1, p2) {
+          cssClassChanged++;
+          return p1 + 'visually-hidden-focusable' + p2;
+        }),
+      )
+      .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bsr-only-focusable\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'visually-hidden-focusable' + p2;
