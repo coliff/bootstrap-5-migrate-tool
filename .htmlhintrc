@@ -9,6 +9,7 @@
   "button-type-require": true,
   "doctype-first": true,
   "doctype-html5": true,
+  "frame-title-require": true,
   "h1-require": true,
   "head-script-disabled": true,
   "head-style-disabled": true,
