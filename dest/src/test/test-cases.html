@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Test Cases for Bootstrap CDN Link Regex</title>
+    
+    <!-- Test case 1: JSDelivr CSS with href first, rel second (should work) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Test case 2: JSDelivr CSS with rel first, href second (currently broken) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Test case 3: CDNJS CSS with href first, rel second (should work) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Test case 4: CDNJS CSS with rel first, href second (currently broken) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Test case 5: Stackpath CSS with href first, rel second (should work) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Test case 6: Stackpath CSS with rel first, href second (currently broken) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.2/dist/css/bootstrap.min.css" />
+    
+    <!-- Test case 7: UNPKG CSS with href first, rel second (should work) -->
+    <link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    
+    <!-- Test case 8: UNPKG CSS with rel first, href second (currently broken) -->
+    <link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    
+  </head>
+  <body>
+    <h1>Test Cases for Bootstrap CDN Link Regex</h1>
+    <p>This file contains test cases for both attribute orders.</p>
+  </body>
+</html>

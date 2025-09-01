@@ -41,9 +41,26 @@ async function migrate(cb) {
           },
         ),
       )
+      // CDNJS CSS (reverse attribute order)
+      .pipe(
+        replace(
+          /<link rel=["']stylesheet["'] href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] ?\/?>/g,
+          function () {
+            CDNLinksChanged++;
+            return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">';
+          },
+        ),
+      )
       // JSDelivr CSS
       .pipe(
         replace(/<link href=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
+          CDNLinksChanged++;
+          return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">';
+        }),
+      )
+      // JSDelivr CSS (reverse attribute order)
+      .pipe(
+        replace(/<link rel=["']stylesheet["'] href=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] ?\/?>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">';
         }),
@@ -55,9 +72,23 @@ async function migrate(cb) {
           return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
         }),
       )
+      // Stackpath CSS (reverse attribute order)
+      .pipe(
+        replace(/<link rel=["']stylesheet["'] href=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] ?\/?>/g, function () {
+          CDNLinksChanged++;
+          return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
+        }),
+      )
       // UNPKG CSS
       .pipe(
         replace(/<link href=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
+          CDNLinksChanged++;
+          return '<link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
+        }),
+      )
+      // UNPKG CSS (reverse attribute order)
+      .pipe(
+        replace(/<link rel=["']stylesheet["'] href=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] ?\/?>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
         }),
