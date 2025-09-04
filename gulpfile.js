@@ -34,7 +34,7 @@ async function migrate(cb) {
       // CDNJS CSS
       .pipe(
         replace(
-          /<link href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g,
+          /<link(?=\s)(?=(?:[^>]*\s+)?href=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'])(?=(?:[^>]*\s+)?rel=["']stylesheet["'])[^>]*>/g,
           function () {
             CDNLinksChanged++;
             return '<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">';
@@ -43,23 +43,23 @@ async function migrate(cb) {
       )
       // JSDelivr CSS
       .pipe(
-        replace(/<link href=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
+        replace(/<link(?=\s)(?=(?:[^>]*\s+)?href=["']https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css["'])(?=(?:[^>]*\s+)?rel=["']stylesheet["'])[^>]*>/g, function () {
           CDNLinksChanged++;
           return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">';
         })
       )
       // Stackpath CSS
       .pipe(
-        replace(/<link href=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
+        replace(/<link(?=\s)(?=(?:[^>]*\s+)?href=["']https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'])(?=(?:[^>]*\s+)?rel=["']stylesheet["'])[^>]*>/g, function () {
           CDNLinksChanged++;
-          return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
+          return '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">';
         })
       )
       // UNPKG CSS
       .pipe(
-        replace(/<link href=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'] rel=["']stylesheet["'] ?\/?>/g, function () {
+        replace(/<link(?=\s)(?=(?:[^>]*\s+)?href=["']https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css["'])(?=(?:[^>]*\s+)?rel=["']stylesheet["'])[^>]*>/g, function () {
           CDNLinksChanged++;
-          return '<link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css">';
+          return '<link href="https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">';
         })
       )
       // CDNJS JS
