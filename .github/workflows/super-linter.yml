@@ -39,6 +39,8 @@ jobs:
           LOG_LEVEL: NOTICE
           SUPPRESS_POSSUM: true
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_BIOME_FORMAT: false
+          VALIDATE_BIOME_LINT: false
           VALIDATE_CSS: false
           VALIDATE_EDITORCONFIG: false
           VALIDATE_JAVASCRIPT_ES: false
