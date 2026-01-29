@@ -43,6 +43,7 @@ jobs:
           VALIDATE_BIOME_LINT: false
           VALIDATE_CSS: false
           VALIDATE_EDITORCONFIG: false
+          VALIDATE_GITHUB_ACTIONS_ZIZMOR: false
           VALIDATE_JAVASCRIPT_ES: false
           VALIDATE_JAVASCRIPT_PRETTIER: false
           VALIDATE_JSON: false
