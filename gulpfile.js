@@ -700,8 +700,8 @@ async function migrate(cb) {
           return p1 + 'collapse-horizontal' + p2;
         })
       )
-      .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
-      .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)form-control\b(?!-)([^'"]*['"])/g, '<select$1class="$2form-select$3'))
+      .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)(?<!-)form-control(-lg|-sm)?([^'"]*)['"]([^>]*)>/g, '<select$1class="$2form-select$3$4"$5>'))
+      .pipe(replace(/<select([^>]*)\bclass=['"]([^'"]*)(?<!-)form-control\b(?!-)([^'"]*['"])/g, '<select$1class="$2form-select$3'))
       .pipe(replace('<span aria-hidden="true">&times;</span>', ''))
       .pipe(dest(options.dest))
       .on('data', (data) => {
