@@ -191,9 +191,21 @@ async function migrate(cb) {
         })
       )
       .pipe(
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bborder-left-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+          cssClassChanged++;
+          return p1 + 'border-start-' + p2;
+        })
+      )
+      .pipe(
         replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bborder-left\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'border-start' + p2;
+        })
+      )
+      .pipe(
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bborder-right-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+          cssClassChanged++;
+          return p1 + 'border-end-' + p2;
         })
       )
       .pipe(
