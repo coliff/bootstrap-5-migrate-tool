@@ -497,7 +497,7 @@ async function migrate(cb) {
         })
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bml-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bml-\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ms-' + p2;
         })
@@ -509,7 +509,7 @@ async function migrate(cb) {
         })
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bmr-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bmr-\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'me-' + p2;
         })
@@ -527,13 +527,13 @@ async function migrate(cb) {
         })
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bpl-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bpl-\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ps-' + p2;
         })
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bpr-\b(?!-)([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<!-)\bpr-\b([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'pe-' + p2;
         })
