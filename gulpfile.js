@@ -64,7 +64,7 @@ async function migrate(cb) {
       )
       // CDNJS JS
       .pipe(
-        replace(/<script src=["']https:\/\/cdn\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js["']>/g, function () {
+        replace(/<script src=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js">';
         })
@@ -92,7 +92,7 @@ async function migrate(cb) {
       )
       // CDNJS Bundle JS
       .pipe(
-        replace(/<script src=["']https:\/\/cdn\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
+        replace(/<script src=["']https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js["']>/g, function () {
           CDNLinksChanged++;
           return '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js">';
         })
