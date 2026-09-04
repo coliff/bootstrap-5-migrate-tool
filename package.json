@@ -21,7 +21,7 @@
     "start": "gulp migrate --src ./src --dest ./dest",
     "htmlhint": "npx htmlhint **/*.html",
     "lint": "npx eslint@8.57.1 *.js --fix",
-    "prettier": "npx prettier@3 --write \"**/*.{html,js,md,yml}\"",
+    "prettier": "npx prettier@3.9.6 --write \"**/*.{html,js,json,md,yml}\"",
     "test": "npm run lint && npm run prettier && npm run start"
   },
   "dependencies": {
@@ -42,6 +42,6 @@
     }
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

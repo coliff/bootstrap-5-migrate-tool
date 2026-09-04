@@ -1,3 +1,4 @@
 *.min.*
 /dest/
 package-lock.json
+.cspell.json
