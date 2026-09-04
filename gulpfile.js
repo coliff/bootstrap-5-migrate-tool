@@ -33,86 +33,89 @@ async function migrate(cb) {
     src([`${options.src}/${options.defaultFileGlob}`], { base: options.overwrite ? './' : undefined })
       // CDNJS CSS
       .pipe(
-        replace(/https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css/g, function () {
+        replace(/(href=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css';
+          return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css' + p4;
         }),
       )
       // JSDelivr CSS
       .pipe(
-        replace(/https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css/g, function () {
+        replace(/(href=["'])(https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
       // Stackpath CSS
       .pipe(
-        replace(/https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css/g, function () {
+        replace(/(href=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
       // UNPKG CSS
       .pipe(
-        replace(/https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css/g, function () {
+        replace(/(href=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css';
+          return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
       // CDNJS JS
       .pipe(
-        replace(/https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js';
+          return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js' + p4;
         }),
       )
       // JSDelivr JS
       .pipe(
-        replace(/https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
       )
       // Stackpath JS
       .pipe(
-        replace(/https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
       )
       // UNPKG JS
       .pipe(
-        replace(/https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.min.js';
+          return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
       )
       // CDNJS Bundle JS
       .pipe(
-        replace(/https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js/g, function () {
-          CDNLinksChanged++;
-          return 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js';
-        }),
+        replace(
+          /(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g,
+          function (match, p1, p2, p3, p4) {
+            CDNLinksChanged++;
+            return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js' + p4;
+          },
+        ),
       )
       // JSDelivr Bundle JS
       .pipe(
-        replace(/https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/cdn\.jsdelivr\.net\/npm\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
         }),
       )
       // Stackpath Bundle JS
       .pipe(
-        replace(/https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js';
+          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
         }),
       )
       // UNPKG Bundle JS
       .pipe(
-        replace(/https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js/g, function () {
+        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
-          return 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js';
+          return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
         }),
       )
       .pipe(
