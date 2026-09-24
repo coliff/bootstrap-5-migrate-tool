@@ -22,7 +22,6 @@ async function migrate(cb) {
   const options = parseArgs();
 
   console.log(options);
-  // process.exit(0)
 
   let dataAttrChanged = 0;
   let CDNLinksChanged = 0;
@@ -122,9 +121,6 @@ async function migrate(cb) {
         replace(
           /\sdata-(animation|autohide|backdrop|boundary|container|content|custom-class|delay|dismiss|display|html|interval|keyboard|method|offset|pause|placement|popper-config|reference|ride|selector|slide(-to)?|target|template|title|toggle|touch|trigger|wrap)=/g,
           function (match, p1) {
-            if (p1 === 'toggle' && match.includes('data-bs-toggle="')) {
-              return match;
-            }
             dataAttrChanged++;
             return ' data-bs-' + p1 + '=';
           },
@@ -137,565 +133,539 @@ async function migrate(cb) {
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-danger\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-danger(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-danger' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-dark\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-dark(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-dark' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-info\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-info(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-info' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-light\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-light(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-light' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-pill\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-pill(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-pill' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-primary\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-primary(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-primary' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-secondary\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-secondary(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-secondary' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-success\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-success(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-success' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bbadge-warning\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])badge-warning(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-bg-warning' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bborder-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])border-left(?=(?:-0)?(?![\w-]))([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'border-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bborder-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])border-right(?=(?:-0)?(?![\w-]))([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'border-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"])\s*\bclose\b\s*(['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])close(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'btn-close' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-control-input\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-control-input(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-check-input' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-control-label\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-control-label(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-check-label' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-control custom-checkbox\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-control custom-checkbox(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-check' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-control custom-radio\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-control custom-radio(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-check' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-file-input\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-file-input(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-control' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-file-label\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-file-label(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-label' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-range\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-range(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-range' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-select-sm\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-select-sm(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-select-sm' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-select-lg\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-select-lg(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-select-lg' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-select\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-select(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-select' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bcustom-control custom-switch\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])custom-control custom-switch(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-check form-switch' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-sm-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-sm-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-sm-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-md-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-md-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-md-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-lg-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-lg-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-lg-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-xl-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-xl-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-xl-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-sm-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-sm-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-sm-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-md-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-md-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-md-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-lg-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-lg-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-lg-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropdown-menu-xl-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropdown-menu-xl-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropdown-menu-xl-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropleft\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropleft(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropstart' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bdropright\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])dropright(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'dropend' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-sm-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-sm-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-sm-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-md-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-md-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-md-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-lg-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-lg-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-lg-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-xl-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-xl-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-xl-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-sm-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-sm-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-sm-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-md-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-md-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-md-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-lg-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-lg-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-lg-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfloat-xl-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])float-xl-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'float-xl-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-italic\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-italic(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fst-italic' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-weight-bold\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-weight-bold(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fw-bold' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-weight-bolder\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-weight-bolder(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fw-bolder' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-weight-light\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-weight-light(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fw-light' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-weight-lighter\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-weight-lighter(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fw-lighter' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bfont-weight-normal\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])font-weight-normal(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'fw-normal' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bform-control-file\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])form-control-file(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-control' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bform-control-range\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])form-control-range(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'form-range' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bform-group\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])form-group(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'mb-3' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bform-inline\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])form-inline(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'd-flex align-items-center' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bform-row\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])form-row(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'row' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bjumbotron-fluid\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])jumbotron-fluid(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-0 px-0' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bjumbotron\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])jumbotron(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'bg-light mb-4 rounded-2 py-5 px-3' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bmedia-body\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])media-body(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'flex-grow-1' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bmedia\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])media(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'd-flex' + p2;
         }),
       )
+      // Rewrite every ml-*, mr-*, pl-* and pr-* utility in a class attribute (not just the first one)
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bml-\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'ms-' + p2;
+        replace(/(<[^>]*\sclass\s*=\s*['"])([^'"]*)(['"])/g, function (match, p1, classes, p2) {
+          const updated = classes.replace(/(?<![\w-])([mp])([lr])-(?=\w)/g, function (token, type, side) {
+            cssClassChanged++;
+            return type + (side === 'l' ? 's' : 'e') + '-';
+          });
+          return p1 + updated + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bml-n\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'ms-n' + p2;
-        }),
-      )
-      .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bmr-\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'me-' + p2;
-        }),
-      )
-      .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bmr-n\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'me-n' + p2;
-        }),
-      )
-      .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bno-gutters\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])no-gutters(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'g-0' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bpl-\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'ps-' + p2;
-        }),
-      )
-      .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bpr-\b([^'"]*['"])/g, function (match, p1, p2) {
-          cssClassChanged++;
-          return p1 + 'pe-' + p2;
-        }),
-      )
-      .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bpre-scrollable\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])pre-scrollable(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'overflow-y-scroll' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive-item\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive-item(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + '' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive-16by9\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive-16by9(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ratio-16x9' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive-1by1\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive-1by1(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ratio-1x1' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive-21by9\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive-21by9(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ratio-21x9' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive-4by3\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive-4by3(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ratio-4x3' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bembed-responsive\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])embed-responsive(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'ratio' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\brounded-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])rounded-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\brounded-lg\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])rounded-lg(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-3' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\brounded-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])rounded-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\brounded-sm\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])rounded-sm(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'rounded-1' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bsr-only sr-only-focusable\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])sr-only sr-only-focusable(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'visually-hidden-focusable' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bsr-only-focusable\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])sr-only-focusable(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'visually-hidden-focusable' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bsr-only\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])sr-only(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'visually-hidden' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-hide\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-hide(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'd-none' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-sm-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-sm-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-sm-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-md-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-md-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-md-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-lg-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-lg-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-lg-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-xl-left\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-xl-left(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-xl-start' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-sm-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-sm-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-sm-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-md-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-md-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-md-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-lg-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-lg-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-lg-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-xl-right\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-xl-right(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'text-xl-end' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\btext-monospace\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])text-monospace(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'font-monospace' + p2;
         }),
       )
       .pipe(
-        replace(/(<[^>]*class\s*=\s*['"][^'"]*)\bwidth\b([^'"]*['"])/g, function (match, p1, p2) {
+        replace(/(<[^>]*class\s*=\s*['"][^'"]*)(?<![\w-])width(?![\w-])([^'"]*['"])/g, function (match, p1, p2) {
           cssClassChanged++;
           return p1 + 'collapse-horizontal' + p2;
         }),
