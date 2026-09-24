@@ -6,7 +6,7 @@
 - It uses gulp with gulp-replace to replace class names within your folder of HTML pages/templates.
 - Code is formatted with Prettier.
 - Node v20 or later is required.
-- JavaScript code should be linted with ESLint (see `eslint.config.js`).
+- JavaScript Code should be linted with ESLint 8.57.1.
 - Documentation and comments should be in US English.
 - This project uses the MIT License.
 - Ensure all npm packages are up to date before running the script.
