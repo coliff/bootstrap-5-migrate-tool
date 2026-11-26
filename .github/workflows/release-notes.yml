@@ -12,13 +12,11 @@ permissions:
 jobs:
   update_release_draft:
     permissions:
-      # allow release-drafter/release-drafter to create GitHub releases and add labels to PRs
+      # allow release-drafter/release-drafter to create GitHub releases and read merged PRs
       contents: write
-      pull-requests: write
+      pull-requests: read
     runs-on: ubuntu-latest
     if: github.repository == 'coliff/bootstrap-5-migrate-tool'
 
     steps:
-      - uses: release-drafter/release-drafter@978bb0b30c5ee8cdd332ced253758157150d43f0 # v7.10.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: release-drafter/release-drafter@d1a19e60e81a7e650d00a7de9277f87e439117ea # v7.11.0
