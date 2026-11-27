@@ -1,0 +1,32 @@
+name: Auto-merge
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+permissions:
+  contents: read
+
+jobs:
+  auto-merge:
+    # Only approvals from people with write access, on non-draft pull requests from this repository.
+    # (Fork pull requests get a read-only token on this event, so they are merged by hand.)
+    if: >-
+      github.event.review.state == 'approved' &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.review.author_association) &&
+      !github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-slim
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Enable auto-merge
+        run: gh pr merge "$PR_URL" --auto --squash
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          # Merges made with GITHUB_TOKEN don't start the push workflows on main (CI, Bundlewatch,
+          # Scorecard). Add an AUTO_MERGE_TOKEN secret (fine-grained token with Contents and Pull
+          # requests read/write on this repository) so they do.
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN || github.token }}
