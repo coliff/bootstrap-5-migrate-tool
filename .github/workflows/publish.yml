@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     if: github.repository == 'coliff/bootstrap-5-migrate-tool'
     permissions:
       contents: read

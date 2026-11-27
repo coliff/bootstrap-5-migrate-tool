@@ -18,7 +18,14 @@ const DEFAULT_OPTIONS = {
   defaultFileGlob: '**/*.{asp,aspx,cshtml,gohtml,gotmpl,ejs,erb,hbs,html,htm,js,jsp,php,ts,twig,vue}',
 };
 
-async function migrate(cb) {
+/** SRI hashes for the Bootstrap 5.3.8 files that CDN links are rewritten to */
+const BOOTSTRAP_SRI = {
+  'css/bootstrap.min.css': 'sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB',
+  'js/bootstrap.min.js': 'sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y',
+  'js/bootstrap.bundle.min.js': 'sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI',
+};
+
+function migrate() {
   const options = parseArgs();
 
   console.log(options);
@@ -32,10 +39,13 @@ async function migrate(cb) {
     src([`${options.src}/${options.defaultFileGlob}`], { base: options.overwrite ? './' : undefined })
       // CDNJS CSS
       .pipe(
-        replace(/(href=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
-          CDNLinksChanged++;
-          return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css' + p4;
-        }),
+        replace(
+          /(href=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/(?:twitter-)?bootstrap\/4\.\d+\.\d+\/(?:dist\/)?css\/bootstrap(\.min)?\.css)(["'])/g,
+          function (match, p1, p2, p3, p4) {
+            CDNLinksChanged++;
+            return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css' + p4;
+          },
+        ),
       )
       // JSDelivr CSS
       .pipe(
@@ -44,26 +54,29 @@ async function migrate(cb) {
           return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
-      // Stackpath CSS
+      // StackPath / MaxCDN CSS
       .pipe(
-        replace(/(href=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
+        replace(/(href=["'])(https:\/\/(?:stackpath|maxcdn)\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
           return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
       // UNPKG CSS
       .pipe(
-        replace(/(href=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
+        replace(/(href=["'])(https:\/\/unpkg\.com\/bootstrap@4\.\d+\.\d+\/dist\/css\/bootstrap(\.min)?\.css)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
           return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/css/bootstrap.min.css' + p4;
         }),
       )
       // CDNJS JS
       .pipe(
-        replace(/(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
-          CDNLinksChanged++;
-          return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js' + p4;
-        }),
+        replace(
+          /(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/(?:twitter-)?bootstrap\/4\.\d+\.\d+\/(?:dist\/)?js\/bootstrap(\.min)?\.js)(["'])/g,
+          function (match, p1, p2, p3, p4) {
+            CDNLinksChanged++;
+            return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js' + p4;
+          },
+        ),
       )
       // JSDelivr JS
       .pipe(
@@ -72,16 +85,16 @@ async function migrate(cb) {
           return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
       )
-      // Stackpath JS
+      // StackPath / MaxCDN JS
       .pipe(
-        replace(/(src=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
+        replace(/(src=["'])(https:\/\/(?:stackpath|maxcdn)\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
           return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
       )
       // UNPKG JS
       .pipe(
-        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
+        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
           return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.min.js' + p4;
         }),
@@ -89,7 +102,7 @@ async function migrate(cb) {
       // CDNJS Bundle JS
       .pipe(
         replace(
-          /(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/bootstrap\/4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g,
+          /(src=["'])(https:\/\/cdnjs\.cloudflare\.com\/ajax\/libs\/(?:twitter-)?bootstrap\/4\.\d+\.\d+\/(?:dist\/)?js\/bootstrap\.bundle(\.min)?\.js)(["'])/g,
           function (match, p1, p2, p3, p4) {
             CDNLinksChanged++;
             return p1 + 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js' + p4;
@@ -103,23 +116,36 @@ async function migrate(cb) {
           return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
         }),
       )
-      // Stackpath Bundle JS
+      // StackPath / MaxCDN Bundle JS
       .pipe(
-        replace(/(src=["'])(https:\/\/stackpath\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
-          CDNLinksChanged++;
-          return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
-        }),
+        replace(
+          /(src=["'])(https:\/\/(?:stackpath|maxcdn)\.bootstrapcdn\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g,
+          function (match, p1, p2, p3, p4) {
+            CDNLinksChanged++;
+            return p1 + 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
+          },
+        ),
       )
       // UNPKG Bundle JS
       .pipe(
-        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap\/4\.\d+\.\d+\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
+        replace(/(src=["'])(https:\/\/unpkg\.com\/bootstrap@4\.\d+\.\d+\/dist\/js\/bootstrap\.bundle(\.min)?\.js)(["'])/g, function (match, p1, p2, p3, p4) {
           CDNLinksChanged++;
           return p1 + 'https://unpkg.com/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' + p4;
         }),
       )
+      // Replace the stale Bootstrap 4 SRI hash on rewritten CDN tags, otherwise browsers block the new file
+      .pipe(
+        replace(/<(?:link|script)\b[^>]*>/g, function (tag) {
+          const file = tag.match(/bootstrap[@/]5\.3\.8\/(?:dist\/)?(css\/bootstrap\.min\.css|js\/bootstrap\.min\.js|js\/bootstrap\.bundle\.min\.js)["']/);
+          if (!file) {
+            return tag;
+          }
+          return tag.replace(/(\sintegrity\s*=\s*["'])[^"']*(["'])/, '$1' + BOOTSTRAP_SRI[file[1]] + '$2');
+        }),
+      )
       .pipe(
         replace(
-          /\sdata-(animation|autohide|backdrop|boundary|container|content|custom-class|delay|dismiss|display|html|interval|keyboard|method|offset|pause|placement|popper-config|reference|ride|selector|slide(-to)?|target|template|title|toggle|touch|trigger|wrap)=/g,
+          /\sdata-(animation|autohide|backdrop|boundary|container|content|custom-class|delay|dismiss|display|html|interval|keyboard|offset|parent|pause|placement|popper-config|reference|ride|selector|slide(-to)?|spy|target|template|title|toggle|touch|trigger|wrap)=/g,
           function (match, p1) {
             dataAttrChanged++;
             return ' data-bs-' + p1 + '=';
@@ -495,7 +521,7 @@ async function migrate(cb) {
       // Rewrite every ml-*, mr-*, pl-* and pr-* utility in a class attribute (not just the first one)
       .pipe(
         replace(/(<[^>]*\sclass\s*=\s*['"])([^'"]*)(['"])/g, function (match, p1, classes, p2) {
-          const updated = classes.replace(/(?<![\w-])([mp])([lr])-(?=\w)/g, function (token, type, side) {
+          const updated = classes.replace(/(?<![\w-])([mp])([lr])-(?=(?:(?:sm|md|lg|xl)-)?(?:[0-5]|auto|n[1-5])(?![\w-]))/g, function (token, type, side) {
             cssClassChanged++;
             return type + (side === 'l' ? 's' : 'e') + '-';
           });
@@ -681,7 +707,6 @@ async function migrate(cb) {
       })
       .on('end', function () {
         console.log(`Completed! Changed ${cssClassChanged} CSS class names, ${dataAttrChanged} data-attributes and ${CDNLinksChanged} CDN links.`);
-        cb();
       })
   );
 }
